@@ -6,11 +6,13 @@ The agent should help build high-quality contact lists, improve targeting agains
 
 ## Project Layout
 
-- `src/` for the future agent code
-- `references/` for Cresting Wave context, ICP notes, and Clay research
-- `prompts/` for prompt drafts and reusable instructions
+- `references/` for Clay research and working notes
+- `prompts/` for reusable prompt templates
+- `src/` for simple refresh and update scripts
+- `data/snapshots/` for saved source snapshots
+- `logs/` for refresh history
 - `plan.md` for the current project plan
 
 ## Current Focus
 
-The first version of this project should stay lightweight. We are setting up a clean structure so we can add company context, ICP details, and Clay-specific operating knowledge without overengineering the repo.
+The first version of this project should stay lightweight. We are setting up a clean structure so we can capture Clay knowledge, track changes over time, and keep the agent's reference material current without overengineering the repo.
