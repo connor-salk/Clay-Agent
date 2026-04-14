@@ -1,0 +1,133 @@
+{
+  "run_at": "2026-04-14T20:18:15.624130+00:00",
+  "source_count": 5,
+  "meaningful_change_count": 0,
+  "sources": [
+    {
+      "name": "Sources Docs",
+      "kind": "sources",
+      "url": "https://university.clay.com/docs/sources",
+      "status": "ok",
+      "previous_snapshot": "20260414T201732Z.txt",
+      "current_snapshot": "20260414T201815Z.txt",
+      "previous_hash": "57beadf9996a33e8394432c657c69e1a633401d13b81a0c4108ccd14c358e8f9",
+      "current_hash": "57beadf9996a33e8394432c657c69e1a633401d13b81a0c4108ccd14c358e8f9",
+      "meaningful_change": false,
+      "reason": "only minor or boilerplate changes",
+      "similarity": 1.0,
+      "added_count": 0,
+      "removed_count": 0,
+      "summary": "",
+      "top_added": [],
+      "top_removed": [],
+      "reference_targets": [],
+      "source_routes": [
+        "clay-workflows.md",
+        "clay-limitations.md",
+        "clay-changelog-notes.md"
+      ]
+    },
+    {
+      "name": "Enrichments Docs",
+      "kind": "enrichments",
+      "url": "https://university.clay.com/docs/enrichments",
+      "status": "ok",
+      "previous_snapshot": "20260414T201732Z.txt",
+      "current_snapshot": "20260414T201815Z.txt",
+      "previous_hash": "0ad2e87e29bcefa48a193099e5efc6e2d2cbc8b6425b837a517524995b62803d",
+      "current_hash": "0ad2e87e29bcefa48a193099e5efc6e2d2cbc8b6425b837a517524995b62803d",
+      "meaningful_change": false,
+      "reason": "only minor or boilerplate changes",
+      "similarity": 1.0,
+      "added_count": 0,
+      "removed_count": 0,
+      "summary": "",
+      "top_added": [],
+      "top_removed": [],
+      "reference_targets": [],
+      "source_routes": [
+        "clay-capabilities.md",
+        "clay-workflows.md",
+        "clay-limitations.md",
+        "clay-changelog-notes.md"
+      ]
+    },
+    {
+      "name": "Bulk Enrichment Docs",
+      "kind": "bulk-enrichment",
+      "url": "https://university.clay.com/docs/bulk-enrichment",
+      "status": "ok",
+      "previous_snapshot": "20260414T201732Z.txt",
+      "current_snapshot": "20260414T201815Z.txt",
+      "previous_hash": "422115151d4ebf16839886604a01d351c4da5c0953f62337d51f7d9dff716f6a",
+      "current_hash": "422115151d4ebf16839886604a01d351c4da5c0953f62337d51f7d9dff716f6a",
+      "meaningful_change": false,
+      "reason": "only minor or boilerplate changes",
+      "similarity": 1.0,
+      "added_count": 0,
+      "removed_count": 0,
+      "summary": "",
+      "top_added": [],
+      "top_removed": [],
+      "reference_targets": [],
+      "source_routes": [
+        "clay-capabilities.md",
+        "clay-workflows.md",
+        "clay-limitations.md",
+        "clay-changelog-notes.md"
+      ]
+    },
+    {
+      "name": "HTTP API Docs",
+      "kind": "http-api",
+      "url": "https://www.clay.com/university/lesson/http-api-clay-101",
+      "status": "ok",
+      "previous_snapshot": "20260414T201732Z.txt",
+      "current_snapshot": "20260414T201815Z.txt",
+      "previous_hash": "72fdf01474df4dc28d3f4eeaeb178e5719adb385710be1cadf2d70e94cbae748",
+      "current_hash": "72fdf01474df4dc28d3f4eeaeb178e5719adb385710be1cadf2d70e94cbae748",
+      "meaningful_change": false,
+      "reason": "only minor or boilerplate changes",
+      "similarity": 1.0,
+      "added_count": 0,
+      "removed_count": 0,
+      "summary": "",
+      "top_added": [],
+      "top_removed": [],
+      "reference_targets": [],
+      "source_routes": [
+        "clay-capabilities.md",
+        "clay-workflows.md",
+        "clay-limitations.md",
+        "clay-open-questions.md",
+        "clay-changelog-notes.md"
+      ]
+    },
+    {
+      "name": "Webhooks Docs",
+      "kind": "webhooks",
+      "url": "https://university.clay.com/docs/webhook-integration-docs",
+      "status": "ok",
+      "previous_snapshot": "20260414T201732Z.txt",
+      "current_snapshot": "20260414T201815Z.txt",
+      "previous_hash": "ad610de7b998e8ab8fda1f8c4d228dbe3721aebe78aee6b2ad321d685e59c057",
+      "current_hash": "ad610de7b998e8ab8fda1f8c4d228dbe3721aebe78aee6b2ad321d685e59c057",
+      "meaningful_change": false,
+      "reason": "only minor or boilerplate changes",
+      "similarity": 1.0,
+      "added_count": 0,
+      "removed_count": 0,
+      "summary": "",
+      "top_added": [],
+      "top_removed": [],
+      "reference_targets": [],
+      "source_routes": [
+        "clay-capabilities.md",
+        "clay-workflows.md",
+        "clay-limitations.md",
+        "clay-open-questions.md",
+        "clay-changelog-notes.md"
+      ]
+    }
+  ]
+}

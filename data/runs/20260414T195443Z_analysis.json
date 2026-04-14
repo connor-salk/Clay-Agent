@@ -1,0 +1,72 @@
+{
+  "run_at": "2026-04-14T19:54:43.904725+00:00",
+  "source_count": 3,
+  "meaningful_change_count": 2,
+  "sources": [
+    {
+      "name": "Clay Changelog",
+      "kind": "changelog",
+      "url": "https://www.clay.com/changelog",
+      "status": "ok",
+      "previous_snapshot": "20260414T195357Z.txt",
+      "current_snapshot": "20260414T195443Z.txt",
+      "previous_hash": "55234e591847d4bf06a8f594ae34e61bf3da3181f29d19a0eb99afc18d3ac863",
+      "current_hash": "42ac825d6a0076bb7fa6e3c7dce528193b0113b88fe2b35272ca633ab20fbfdb",
+      "meaningful_change": true,
+      "reason": "content changed",
+      "similarity": 0.96065,
+      "added_count": 0,
+      "removed_count": 128,
+      "summary": "Removed: oct 8, 2026, san francisco; Research target companies and people with AI",
+      "top_added": [],
+      "top_removed": [
+        "oct 8, 2026, san francisco",
+        "Research target companies and people with AI"
+      ],
+      "reference_targets": [
+        "clay-capabilities.md",
+        "clay-changelog-notes.md"
+      ]
+    },
+    {
+      "name": "AI in Clay Guide",
+      "kind": "documentation",
+      "url": "https://www.clay.com/university/guide/ai-in-clay",
+      "status": "ok",
+      "previous_snapshot": "20260414T195357Z.txt",
+      "current_snapshot": "20260414T195443Z.txt",
+      "previous_hash": "3cc2ee174e10d344bbcdb24383ffc820270c59ff062208a9b7d097c67552224d",
+      "current_hash": "a8a8092a1b423f5515d0c442b14d34f65227712d184c2988eba4a4a610c45285",
+      "meaningful_change": true,
+      "reason": "content changed",
+      "similarity": 0.98008,
+      "added_count": 0,
+      "removed_count": 26,
+      "summary": "",
+      "top_added": [],
+      "top_removed": [],
+      "reference_targets": [
+        "clay-changelog-notes.md"
+      ]
+    },
+    {
+      "name": "Signals & ABM Course",
+      "kind": "documentation",
+      "url": "https://university.clay.com/courses/signals-abm",
+      "status": "ok",
+      "previous_snapshot": "20260414T195357Z.txt",
+      "current_snapshot": "20260414T195443Z.txt",
+      "previous_hash": "ef8c2269aaed2a95934dc448b99e170010555861d28e0d1b9a5880a7d60bfca5",
+      "current_hash": "56f220478d6f2251892903181d57d102a020c98c5338077c57738a13a8044344",
+      "meaningful_change": false,
+      "reason": "only minor or boilerplate changes",
+      "similarity": 0.70676,
+      "added_count": 0,
+      "removed_count": 2,
+      "summary": "",
+      "top_added": [],
+      "top_removed": [],
+      "reference_targets": []
+    }
+  ]
+}

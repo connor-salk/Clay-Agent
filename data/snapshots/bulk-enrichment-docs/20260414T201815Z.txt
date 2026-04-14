@@ -1,0 +1,106 @@
+Bulk enrichment - Clay Docs
+Search University or ask AI. Learn your way.
+Use case templates
+Doc Topics
+Getting started
+Find
+Enrich
+Transform
+Web scraping
+Gen AI
+Export
+Settings & admin
+Signals & triggers
+Use case templates
+Doc Topics
+Getting started
+Find
+Enrich
+Transform
+Web scraping
+Gen AI
+Export
+Settings & admin
+Signals & triggers
+Use case templates
+Doc Topics
+Getting started
+Find
+Enrich
+Transform
+Web scraping
+Gen AI
+Export
+Settings & admin
+Signals & triggers
+All docs
+Enrich
+Bulk enrichment
+Bulk enrichment
+Enrich millions of rows quickly, securely, and at scale. No row limits, no slowdown.
+Bulk enrichment
+Bulk enrichment makes it easy to process massive datasets—no row limits, no slowdown. Enrich millions of rows quickly, securely, and at scale.
+You'll get the full power of Clay's enrichment engine without storing data inside Clay. Results are sent directly to your external destinations, like Salesforce, Snowflake, or Google Sheets, keeping your systems continuously enriched and in sync.
+Once your data is successfully exported, enriched rows are automatically deleted to keep your workspace clean and efficient.
+Setting up a bulk enrichment
+Import from CSV
+On the homepage, click New → Bulk enrichment .
+Select Source type → Import from CSV .
+Select Delimiter .
+A delimiter is the character that separates values in your CSV file (e.g., comma, semicolon, or tab).
+Click Save and start adding enrichments normally.
+Import from CRM (Salesforce)
+On the homepage, click New → Bulk enrichment .
+Select Source type → Import from CRM .
+Next, Select Salesforce account .
+Click Add account if you haven't already authenticated your account.
+Select inputs from Salesforce object and List view .
+Click Save and start adding enrichments normally.
+Using a bulk enrichment
+In the bulk enrichment settings, you can adjust several options:
+Test data : Add rows to test your enrichments before running the full source.
+Export data : Set up your export destination.
+This could be Salesforce, Google Sheets, Snowflake, etc.
+Deletion criteria : Single column or conditional rules.
+You can also Archive deleted rows for up to 30 days, meaning they will remain indexed and searchable.
+Run starting point : Decide whether to clear rows already in the test table and rerun them.
+Table of contents
+TOC Heading
+TOC Heading
+Plan
+Enterprise
+Explore other docs
+Find
+ContactLevel integration
+Enrich contacts in Clay with SHA-256 hashed personal email addresses for use in high-match ad audiences.
+View article
+View article View article
+Enrich
+Google BigQuery integration
+Import records from BigQuery into Clay using SQL queries, and send enriched data back by inserting, looking up, updating, or upserting rows in your BigQuery tables.
+View article
+View article View article
+Find
+Enigma integration
+View article
+View article View article
+Find
+Vector integration
+Find hashed emails with Vector.
+View article
+View article View article
+Enrich
+CB Insights
+Enrich company records with funding history, valuations, revenue ranges, industry classifications, and more.
+View article
+View article View article
+Getting started
+Functions
+Functions let you convert any enrichment sequence into a reusable workflow. Once created, you can use it across any table — and any updates you make to the function automatically apply everywhere it's used.
+View article
+View article View article
+Find
+Work Email waterfall
+Find and validate work emails faster — the Work Email waterfall cascades across multiple providers in sequence, stopping as soon as a valid result is found.
+View article
+View article View article

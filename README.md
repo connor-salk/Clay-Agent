@@ -1,8 +1,13 @@
 # Clay Agent
 
-This project is a simple starting point for a Clay-focused agent that supports Cresting Wave.
+This project now supports two layers:
 
-The agent should help build high-quality contact lists, improve targeting against the ideal customer profile, and steadily deepen its working knowledge of Clay so it can operate more like a Chief Sales Engineer than a generic research assistant.
+- a Clay knowledge refresh layer that keeps official Clay guidance current
+- the main product: a Cresting Wave Clay advisor that can give practical, step-by-step help inside Clay
+
+The knowledge refresh layer is complete enough for v1. It monitors official Clay documentation, stores snapshots, detects meaningful changes, updates reference notes, and logs each run in a lightweight, readable way.
+
+The main product focus is now the Cresting Wave Clay advisor. That advisor should help build high-quality contact lists, improve targeting against the ideal customer profile, and apply Clay with the judgment of a strong sales engineer rather than a generic research assistant.
 
 ## Project Layout
 
@@ -15,4 +20,4 @@ The agent should help build high-quality contact lists, improve targeting agains
 
 ## Current Focus
 
-The first version of this project should stay lightweight. We are setting up a clean structure so we can capture Clay knowledge, track changes over time, and keep the agent's reference material current without overengineering the repo.
+The refresh system is now stable enough to serve as the v1 knowledge layer. From here, the primary work shifts to building the Cresting Wave Clay advisor on top of that knowledge base without overengineering the repo.

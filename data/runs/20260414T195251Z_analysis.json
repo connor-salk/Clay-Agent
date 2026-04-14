@@ -1,0 +1,96 @@
+{
+  "run_at": "2026-04-14T19:52:51.381832+00:00",
+  "source_count": 4,
+  "meaningful_change_count": 3,
+  "sources": [
+    {
+      "name": "Clay Changelog",
+      "kind": "changelog",
+      "url": "https://www.clay.com/changelog",
+      "status": "ok",
+      "previous_snapshot": null,
+      "current_snapshot": "20260414T195251Z.txt",
+      "previous_hash": null,
+      "current_hash": "dba58be71e40343f4148bcd6c25600bd31d8487f567333551fa64135f2107bd7",
+      "meaningful_change": true,
+      "reason": "initial baseline captured",
+      "similarity": 0.0,
+      "added_count": 750,
+      "removed_count": 0,
+      "summary": "Added: New at Clay | Clay.comTHE GO-TO-MARKET; CONFERENCE BY CLAYoct 8, 2026, san francisco; \u2192 sculpt.clay.comSkip to mainCopy logo to clipboard (png)Copied!Copy icon to clipboard (png)Copied!Download brand assetsDownloaded!",
+      "top_added": [
+        "New at Clay | Clay.comTHE GO-TO-MARKET",
+        "CONFERENCE BY CLAYoct 8, 2026, san francisco",
+        "\u2192 sculpt.clay.comSkip to mainCopy logo to clipboard (png)Copied!Copy icon to clipboard (png)Copied!Download brand assetsDownloaded!"
+      ],
+      "top_removed": [],
+      "reference_targets": [
+        "clay-capabilities.md",
+        "clay-changelog-notes.md"
+      ]
+    },
+    {
+      "name": "AI in Clay Guide",
+      "kind": "documentation",
+      "url": "https://www.clay.com/university/guide/ai-in-clay",
+      "status": "ok",
+      "previous_snapshot": null,
+      "current_snapshot": "20260414T195251Z.txt",
+      "previous_hash": null,
+      "current_hash": "dadf607cbacab902c952af9faf85ae5f7b496c422cfeec79be125962e46e30d1",
+      "meaningful_change": true,
+      "reason": "initial baseline captured",
+      "similarity": 0.0,
+      "added_count": 303,
+      "removed_count": 0,
+      "summary": "Added: AI in Clay - Clay DocsSkip to mainReview your year with Clay on Clayback.clay.comUniversity home pageSearch University or ask AI. Learn your way.\u2318K\u200bOpen workspace; \u200bUse case templates; Doc TopicsGetting startedFindEnrichTransformWeb scrapingGen AIExportSettings & adminSignals & triggers",
+      "top_added": [
+        "AI in Clay - Clay DocsSkip to mainReview your year with Clay on Clayback.clay.comUniversity home pageSearch University or ask AI. Learn your way.\u2318K\u200bOpen workspace",
+        "\u200bUse case templates",
+        "Doc TopicsGetting startedFindEnrichTransformWeb scrapingGen AIExportSettings & adminSignals & triggers"
+      ],
+      "top_removed": [],
+      "reference_targets": [
+        "clay-capabilities.md",
+        "clay-changelog-notes.md",
+        "clay-workflows.md"
+      ]
+    },
+    {
+      "name": "Signals & ABM Course",
+      "kind": "documentation",
+      "url": "https://university.clay.com/courses/signals-abm",
+      "status": "ok",
+      "previous_snapshot": null,
+      "current_snapshot": "20260414T195251Z.txt",
+      "previous_hash": null,
+      "current_hash": "1b9a8bff86851f70a62d6c677b2fc4652503e4a247b2ed4d6c3bbc562955f221",
+      "meaningful_change": true,
+      "reason": "initial baseline captured",
+      "similarity": 0.0,
+      "added_count": 127,
+      "removed_count": 0,
+      "summary": "Added: Signals & ABM - Clay UniversitySkip to mainReview your year with Clay on Clayback.clay.comUniversity home pageSearch University or ask AI. Learn your way.\u2318K\u200bOpen workspace; \u200bUse case templates; Courses\u200bClay 101: GTM Automation\u200bLimitless Research\u200bAI-Powered GTM Automation\u200bAutomated Outbound\u200bSignals & ABM\u200bCRM Enrichment\u200bAutomated Inbound\u200bHow to Use HG Insights in Clay\u200bTAM Sourcing\u200bClay in ChatGPT\u200bAudiences\u200bFunctions",
+      "top_added": [
+        "Signals & ABM - Clay UniversitySkip to mainReview your year with Clay on Clayback.clay.comUniversity home pageSearch University or ask AI. Learn your way.\u2318K\u200bOpen workspace",
+        "\u200bUse case templates",
+        "Courses\u200bClay 101: GTM Automation\u200bLimitless Research\u200bAI-Powered GTM Automation\u200bAutomated Outbound\u200bSignals & ABM\u200bCRM Enrichment\u200bAutomated Inbound\u200bHow to Use HG Insights in Clay\u200bTAM Sourcing\u200bClay in ChatGPT\u200bAudiences\u200bFunctions"
+      ],
+      "top_removed": [],
+      "reference_targets": [
+        "clay-capabilities.md",
+        "clay-changelog-notes.md",
+        "clay-limitations.md",
+        "clay-open-questions.md",
+        "clay-workflows.md"
+      ]
+    },
+    {
+      "name": "`Name",
+      "kind": "kind",
+      "url": "url`",
+      "status": "error",
+      "error": "ValueError: unknown url type: 'url`'"
+    }
+  ]
+}

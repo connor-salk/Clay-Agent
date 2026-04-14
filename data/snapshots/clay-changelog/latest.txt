@@ -1,0 +1,792 @@
+New at Clay
+Highlighted features
+Clay in ChatGPT
+Clay in ChatGPT lets you find people, enrich contacts, and draft personalized outreach — all within a regular ChatGPT conversation.
+Learn more
+Turn Gong conversations into automated GTM workflows
+Announcing the new Gong and Clay integration.
+Clay integrates with Webflow, unlocking scalable website personalization for GTM teams
+Introducing the new Webflow and Clay integration
+Mar 30, 2026
+Attio
+Feature highlight
+Beta
+Attio
+Pull Attio records into Clay as a source and push enriched data back by creating, updating, or upserting across any object — keeping your CRM complete and current automatically.
+Learn more
+Mar 27, 2026
+Delay Runs
+Feature highlight
+Beta
+Delay Runs
+Set a configurable delay of up to 10 minutes before enrichment cells execute, giving third-party systems time to process upstream changes.
+Learn more
+Mar 23, 2026
+Table Versioning and Changelog
+Feature highlight
+Beta
+Table Versioning and Changelog
+Track changes to your table's structure and configuration over time, maintain visibility into who made those changes, and restore previous states whenever you need them.
+Learn more
+Mar 10, 2026
+Beauhurst Integration: Private Company Financials, Funding, and Corporate Structure for UK & Germany
+Feature highlight
+Beta
+Beauhurst Integration: Private Company Financials, Funding, and Corporate Structure for UK & Germany
+Access deep private company data for the UK and Germany — including funding rounds that never get publicly announced — to identify and act on commercial inflection points before competitors.
+Learn more
+Mar 10, 2026
+Lusha Integration: Verified Contact Data, Lookalike Prospecting, and Signal-Informed Enrichment
+Feature highlight
+Beta
+Lusha Integration: Verified Contact Data, Lookalike Prospecting, and Signal-Informed Enrichment
+Enrich contacts and companies, find lookalike prospects, and signal-informed enrichment using Lusha's verified B2B data — all inside Clay.
+Learn more
+Mar 06, 2026
+Ocean.io Search Preview Updates
+Feature highlight
+Beta
+Ocean.io Search Preview Updates
+Source lookalike accounts from a database of 2.5M+ companies with live previews and advanced filtering — before spending a single credit.
+Learn more
+Feb 25, 2026
+Ads: Dynamic Exclusion Lists, First-Party Retargeting, and Enriched Lookalike Audiences for LinkedIn and Meta
+Feature highlight
+Beta
+Ads: Dynamic Exclusion Lists, First-Party Retargeting, and Enriched Lookalike Audiences for LinkedIn and Meta
+Sync CRM-powered ad audiences to LinkedIn and Meta that update automatically — no manual CSV uploads required. One Clay table feeds both LinkedIn and Meta simultaneously, turning a multi-hour manual process into a set-and-forget workflow.
+Learn more
+Feb 13, 2026
+Product Roundup 26.Q1.3
+Feature highlight
+Beta
+Product Roundup 26.Q1.3
+Sendoso Integration - Send personalized gifts and create memorable moments with automated gifting workflows
+BuyerCaddy Technographics - A new technographics provider with over 90,000+ technologies and advanced comparison capabilities like verifying tech usage
+Increased Results for Find Contacts and Find Jobs - Discover more prospects with a new data reduction option for improved search results
+LinkedIn Monitoring Enhancement - Monitor reactions and comments on LinkedIn posts with improved engagement tracking
+Twain Custom Variables - Personalize outreach at scale with support for up to 10 custom variables
+Crunchbase API Key - Use your existing Crunchbase API Key directly within Clay for enhanced data access
+FullEnrich Mobile Numbers - Use Clay Credits to find mobile phone numbers using FullEnrich
+CSV as a Source for Bulk Enrichment - Enrich millions of rows from CSV uploads for enterprise-scale workflows
+Learn more
+Jan 30, 2026
+You Asked, We Listened
+Feature highlight
+Beta
+You Asked, We Listened
+Quality of Life improvements across speed, visibility, and collaboration in your core Clay experience.
+Better Table Interactions - Improved keyboard shortcuts, bulk copy/paste, pattern fill, and undo/redo functionality
+Credit Spend Limits - Set spending caps on workbooks to prevent unexpected credit usage
+Better Credit Warnings - See estimated credit costs before importing data into existing tables
+Column Progress Bar - Visual breakdown of row completion status with success, running, and failed indicators
+HTTP API as a Source - Import data from any API endpoint to create new tables for list building
+HTTP API AI Autofill - Configure API enrichments using natural language instead of manual setup
+Saved Searches - Save and reuse filter criteria for People, Companies, and Jobs sources
+Resource Tagging - Organize workspaces, tables, and folders with custom labels and colors
+Bulk Exclusions - Exclude up to 300,000 entities from searches using multiple sources
+SOQL as a Source - Import Salesforce records directly using SOQL queries
+Cell Size Limit Handling - Clearer warnings and suggestions when approaching data limits
+Faster Enrichment Performance - 22x faster action runs and 10x faster AI processing
+Learn more
+Jan 26, 2026
+Clay in Claude
+Feature highlight
+Beta
+Clay in Claude
+Bring Clay's contact databases, enrichment providers, and AI agents into your Claude workflow.
+Learn more
+Jan 16, 2026
+Product Roundup 26.Q1.1
+Feature highlight
+Beta
+Product Roundup 26.Q1.1
+Clay in ChatGPT, HubSpot Sequences, Table Credit Dashboard, Send Table Data, and More!
+Clay in ChatGPT - Find people, enrich contacts, and draft emails directly in ChatGPT
+HubSpot Sequencer - Enroll contacts into HubSpot sequences from Clay
+Optional OAuth Scopes - Choose which object types to grant Clay access to
+Default Credit Limits - Enterprise only: Set a workspace default credit limit that automatically applies to all new workbooks ‍
+Table Credit Usage Dashboard - Track credit usage by time, column, and run ‍
+Gemini 3 Pro - Google's most powerful AI model in Claygent and Use AI ‍
+Send Table Data - Enhanced replacement for Write to Table with column renaming and data merging ‍
+Batch Lookup by ID for Salesforce - Process up to 200 Salesforce lookups at once ‍
+Waterfalls + Templates Refresh - Save multiple waterfalls and column combinations in templates ‍
+Improvements to Colored Columns - Refreshed design with full-width colors
+Learn more
+Dec 12, 2025
+Product Roundup 25.Q4.4
+Feature highlight
+Beta
+Product Roundup 25.Q4.4
+Sumble Technographics: Verify company technology usage with live data sourced from job postings
+Gong Engage flow actions: Add and remove prospects from campaigns with per-prospect sequence customization
+Email Bison integration: Launch campaigns with isolated IP/domain infrastructure and premium deliverability
+Listmint email verification: Verify emails with detailed catch-all status beyond standard SMTP validation
+Microsoft Teams integration: Post HTML-formatted messages to channels with OAuth authentication
+Select column improvements: Auto-complete options from existing data and split into views with one click
+Exact keyword matching: Wrap phrases in quotes to search for exact terms in CPJ filters
+Credit rollover timing: View precise rollover schedule with transparency into exactly what time your credits reset
+Learn more
+Nov 26, 2025
+Product roundup 25.Q4.3
+Feature highlight
+Beta
+Product roundup 25.Q4.3
+Bulk enrichment:
+Enrich millions of records at once without worrying about row limits
+Web Intent:
+Company-level de-anonymization using multiple data providers in waterfall fashion
+Google Slides image integration:
+Programmatically insert images into slide decks from URLs ‍
+Snov.io actions:
+New enrichments for Find work email, Verify email, and Find company domain
+HG Insights improvements:
+Select entire software categories instead of individual products
+Learn more
+Oct 24, 2025
+Product roundup 25.Q4.2
+Feature highlight
+Beta
+Product roundup 25.Q4.2
+Introducing four new integrations to expand your sales workflow capabilities within Clay
+Surfe EMEA data :
+Global data provider with 300M+ professional profiles and exceptional EMEA market coverage
+Rox agent platform :
+AI-powered contact management platform to minimize manual CRM work and automate contact monitoring
+Salesforge sequences :
+Email sequencing platform to push leads directly into automated outreach campaigns
+TheirStack job data :
+Real-time job posting intelligence aggregated from 16,000+ sources for buying signal identification
+Learn more
+Sep 08, 2025
+Product roundup 25.Q3.5
+Feature highlight
+Beta
+Product roundup 25.Q3.5
+Unlock powerful new capabilities for corporate intelligence, workflow optimization, and cost-effective data enrichment. This roundup introduces HG Insights corporate hierarchy mapping for strategic outreach, Octave's revolutionary productivity platform, Minerva's affordable professional profile enrichment, and the new Enrich Job action for extracting tech stack insights from job postings.
+HG Insights Corporate Hierarchy :
+Comprehensive corporate structure insights for multi-threaded outreach strategies
+Octave :
+Revolutionary workflow platform to redefine processes and amplify team productivity
+Minerva Data Provider :
+Cost-effective professional profile enrichment with transparent credit pricing
+Enrich Job Action :
+Extract valuable tech stack intelligence from job postings at no additional cost
+Learn more
+Aug 26, 2025
+Product roundup 25.Q3.4
+Feature highlight
+Beta
+Product roundup 25.Q3.4
+Claygent Navigator, Metaprompter-First AI Columns, Woodpecker, Pubrio and more!
+Claygent Navigator
+AI that doesn't just read but works the web - fills forms, applies filters, and navigates sites with vision capabilities inspired by OpenAI's Operator and GPT-5 reasoning, complete with step-by-step replay functionality
+B2D Developer Profile Discovery
+Bridge the gap between LinkedIn, GitHub, and Twitter to find top developers using specific technologies before your competitors do
+Metaprompter-First AI Experience
+Transform natural language inputs into comprehensive prompts with automatic model selection and output field generation, now the default for Use AI columns
+Credit Usage Transparency
+Take control of your credit spend with import warnings and toggle auto-run actions off to eliminate accidental credit burns ‍
+Pubrio APAC Enrichments
+Access high-quality Asia-Pacific data through seven new enrichments covering verified emails, phone numbers, open jobs, tech stacks, and more with local language support ‍
+Woodpecker Email Sequencing
+Manage prospects seamlessly with four new enrichment actions for campaign management, personalization tags, and AI-powered snippet generation
+Learn more
+Aug 11, 2025
+Product roundup 25.Q3.3
+Feature highlight
+Beta
+Product roundup 25.Q3.3
+We've expanded your enrichment capabilities with six new Icypeas actions starting at 0.1 credits, unlocked private company intelligence through Aviato's financial and acquisition data, revolutionized outreach with Twain 3.0's AI-powered sequence generation, enhanced contact discovery with Bytemines flexible input options, opened access to India's workforce through Weekday integration, and supercharged personalization with Autobound's 300+ AI insights for scalable copywriting.
+Icypeas Integration:
+Enrich person and company data faster and cheaper with six new powerful enrichment actions starting as low as 0.1 credits.
+Aviato Integration:
+Unlock competitive insights on private companies and people with comprehensive financial and legal data.
+Twain 3.0:
+Generate tailored outreach sequences in seconds using LinkedIn URLs or email addresses with AI-powered web scraping.
+Bytemine Integration:
+Enrich contacts using email, LinkedIn, full names, or Facebook URLs with customizable data toggles.
+Weekday Integration:
+Access personal contact data across 80% of India's workforce using LinkedIn profile URLs.
+Autobound Integration:
+Generate personalized content with over 300 insights including news, growth trends, and social media mentions.
+Learn more
+Jul 21, 2025
+Product roundup 25.Q3.2
+Feature highlight
+Beta
+Product roundup 25.Q3.2
+We've enhanced daily workflows with improved UI controls and Slack approval systems, unlocked deeper company intelligence with AI-augmented search filters, introduced a visual workflow builder for complex automation, and added funding amount filters for strategic company targeting.
+Slack Approval Workflow for Enrichments
+Enable human-in-the-loop data enrichment pipelines with manual approval controls
+AI-Augmented Company Data for Advanced Search
+Use richer filters for smarter company targeting with enhanced business insights
+Visual Workflow Builder for Clay
+Plan, build, and manage complex workflows with an intuitive visual interface
+Funding Amount Filter in Company Search
+Quickly find companies by total funding raised to target based on investment capital
+Enhanced Usability Updates
+Boost productivity with a smoother, intuitive UI that streamlines daily workflows.
+Learn more
+Jul 03, 2025
+Product roundup 25.Q3.1
+Feature highlight
+Beta
+Product roundup 25.Q3.1
+We've transformed prospecting with natural language search that eliminates complex filters, enhanced competitive intelligence through advertising spend analysis across Google, Meta, and LinkedIn, and improved ABM targeting with hashed email identification for precise custom audiences. Plus, complete credit transparency shows exactly what you'll spend before running enrichments, reliable traffic estimation powered by search volume data, organizational hierarchy mapping with The Org integration, and enhanced hiring intelligence to target companies when they're actively recruiting.
+Natural Language Search for Companies
+Find companies using plain English descriptions instead of wrestling with complex filters
+The Org Integration
+Identify prospect managers and understand company hierarchies for strategic multi-threading
+Ad Intel Integration
+Prioritize accounts based on advertising spend across Google, Meta, and LinkedIn
+Identity Matrix Integration
+Find hashed personal emails and LinkedIn identities from work emails for improved ABM ad targeting
+Credit Usage Transparency
+Improved visibility into the cost of all downstream dependencies and column reruns
+Serptat Integration
+Get reliable website traffic estimation using search volume data with consistent results across all domains
+Enhanced LeadMagic Integration
+Find companies actively hiring with powerful filters for increased accuracy
+Learn more
+Jun 20, 2025
+Product roundup 25.Q2.5
+Feature highlight
+Beta
+Product roundup 25.Q2.5
+We've enhanced competitive intelligence with four new Semrush actions for deeper website analytics, streamlined data workflows with inter-table routing, and made formula creation more intuitive with natural language column references. Plus, new integrations from Zeliq, enhanced Reverse Contact and Wiza capabilities, and improved safeguards to protect your workflow dependencies.
+Enhanced Semrush Integration
+Four new competitive intelligence actions including top pages, geographic traffic, traffic sources, and social media engagement analysis
+Send table data
+Send specific rows between tables for streamlined workflow management and data organization
+Zeliq Integration
+Access premium contact data specialized in EMEA market coverage for emails and phone numbers
+Find professional profiles with Reverse Contact
+Find professional profiles with flexible pricing - one credit for basic data, three for comprehensive data
+Find professional profiles with Wiza
+Discover professional profiles with for reliable results and to maximize your coverage
+Use natural language to reference columns
+Create formulas using plain English column names without needing to reference the column directly
+Column dependency warnings
+Smart deletion warnings show exactly which columns will be affected downstream
+Scheduled source refresh
+Redesigned interface with granular column selection control for more flexible automation management
+Learn more
+Jun 06, 2025
+Product roundup 25.Q2.4
+Feature highlight
+Beta
+Product roundup 25.Q2.4
+We've launched powerful workflow improvements including Sandbox Mode for testing without credit burn, AI-powered troubleshooting for faster error resolution, and smart enrichment suggestions based on your table data. Plus, new integrations from Champify, Crossbeam, Forager, Dealroom, and Limadata to expand your contact and company enrichment capabilities.
+Sandbox Mode
+Test and iterate on workflows without burning credits or affecting production data
+Troubleshoot with AI
+Get instant AI-powered debugging and resolution steps for any workflow errors
+Table-Aware Search
+Discover relevant enrichments with smart suggestions based on your existing table data
+Dealroom Integration Updates
+Access comprehensive investor data, company valuations, and funding intelligence
+Waterfall Pausing
+Control individual provider steps by toggling them on/off without losing your setup
+Champify Integration
+Find professional profiles using work emails, personal emails, or name and company combinations
+Crossbeam Integration
+Discover which partners share relationships with your target companies for strategic co-selling
+Forager Integrations
+Access personal emails and professional profiles with strong APAC and EMEA coverage
+Limadata Integration
+Find personal emails from LinkedIn profiles to maximize contact discovery success rates
+Exellius Integration
+Enhanced APAC market coverage with specialized data for Japanese and Singaporean contacts
+Learn more
+May 16, 2025
+Product roundup 25.Q2.3
+Feature highlight
+Beta
+Product roundup 25.Q2.3
+The new Trust Radius integration gives you access to buying intent signals, Ocean IO people lookalikes for finding similar prospects, AI semantic search for discovering integrations with natural language, AI image generation for creating personalized visuals at scale, and Live Data for finding professional profiles without needing email addresses.
+Trust Radius Integration
+‍ Get real-time buying intent signals showing which companies are researching your solutions ‍
+‍ Ocean IO People Lookalikes ‍ ‍
+‍ Find similar prospects based on your best customers without complex filter rules ‍
+AI Semantic Search
+‍ Discover the right integrations using natural language queries instead of exact keywords ‍
+AI Image Generation ‍ ‍
+‍ Create custom images at scale for personalized outreach and marketing materials ‍
+Live Data Integration ‍
+‍ Find professional profiles without requiring an email by triangulating multiple data points
+Learn more
+May 02, 2025
+Product roundup 25.Q2.2
+Feature highlight
+Beta
+Product roundup 25.Q2.2
+Try the new Google Slides integration to automatically create personalized decks, ActiveCampaign for customer journey workflows, LeadIQ for website-based personalized outreach, Salesforce lead conversion improvements, a redesigned homepage for faster navigation, Trestle for contact verification, and the new SMARTe data provider for comprehensive contact and company enrichment.
+Google Slides integration ‍
+‍ Create personalized slide decks programmatically using Clay data variables
+ActiveCampaign integration ‍
+‍ Automate customer journeys with lookup, create, update, and association actions
+LeadIQ Value Prop Generator ‍
+‍ Extract website positioning to create personalized outreach emails
+Salesforce lead conversion ‍
+‍ Automatically convert leads based on conditional triggers and signals
+Redesigned homepage ‍
+‍ Navigate your workspace faster with improved organization and folder management
+Trestle Contact Verification ‍
+‍ Verify contacts and validate phone numbers to improve connection rates
+SMARTe Data Provider ‍
+‍ Access comprehensive contact and company enrichment with four key actions
+Learn more
+Apr 18, 2025
+Product roundup 25.Q2.1
+Feature highlight
+Beta
+Product roundup 25.Q2.1
+Introducing our new Signals hub for centralized signal management, Gong transcripts for AI-powered conversation intelligence, LinkedIn's official API for brand monitoring, Adbeat for competitor ad intelligence, Upcell for improved mobile number coverage, the Marketo integration, and ContactOut enhancements.
+Signals hub & wizards
+‍ Track job changes, promotions, fundraising news and more in one place
+Gong transcripts
+‍ Extract call data and build creative automations with 100+ integration providers
+LinkedIn AP
+I Monitor brand mentions and analyze post engagement with LinkedIn's official API
+Adbeat intelligence
+‍ Discover competitor ad strategies across 80+ advertising networks
+Upcell
+‍ Enhanced mobile phone coverage for US and Canadian contact information
+Marketo integration
+‍ Create, update, and query Marketo objects directly from Clay
+ContactOut enhancement
+‍ Find social profiles from email addresses
+Learn more
+Mar 28, 2025
+Product roundup 25.Q1.5
+Feature highlight
+Beta
+Product roundup 25.Q1.5
+Introducing new integrations with Webflow for personalized landing pages, Reddit for brand monitoring, Oakie AI for public filing research, custom waterfall templates for data enrichment, The Swarm for network-based warm introductions, and real-time AI previews to optimize credit usage.
+Webflow integration
+Custom landing pages for your prospects at scale
+Reddit monitoring
+Subreddit & keyword monitoring
+Oakie AI for public filings
+Ai Insights & templates
+Waterfall templates
+Save, reuse, and reorder waterfall configurations
+The Swarm for warm intros
+Warm intros through your network
+AI previews
+Quick meteprompter & AI previews for fast iteration
+Learn more
+Mar 14, 2025
+Product roundup 25.Q1.4
+Feature highlight
+Beta
+Product roundup 25.Q1.4
+Our latest update introduces credit usage reporting, X.com integration, flexible AI token budgets, and advanced model options. Additionally, Clay users can now enrich contacts from work emails, source Instagram followers, and benefit from improved company domain mapping.
+Credit usage reporting
+Custom landing pages for your prospects at scale
+X.com integration
+Subreddit & keyword monitoring
+Flexible AI token
+Claude Sonnet 3.7 and Google's Gemini 2.0
+Advanced model options
+Save, reuse, and reorder waterfall configurations
+Enrichment enhancement on contacts from work emails
+Warm intros through your network
+Source instagram followers
+Find all accounts a profile follows
+Improved company domain mapping
+Quickly connect to a domain
+Learn more
+Feb 28, 2025
+Product roundup 25.Q1.3
+Feature highlight
+Beta
+Product roundup 25.Q1.3
+Introducing powerful new workflow automation with scheduled columns and sources, reusable group column templates for enrichment sequences, enhanced Metaprompter with AI model suggestions and JSON outputs, email waterfall from social profiles, and the Trigify integration for lead generation through social listening.
+Scheduling
+Scheduled sources & columns for recurring lists & enrichments
+Group Column Templates Group, reuse across Clay workspace ‍
+Enhanced Metaprompter Suggested output format & model ‍
+Email from social profile waterfall
+Personal emails from social platforms like instagram, TikTok, YouTube and more. ‍
+Trigify integration
+‍ Social listening integration
+Learn more
+Feb 14, 2025
+Email waterfalls by company size, AI content generation with HeyGen, ElevenLabs, Captions and more!
+Feature highlight
+Beta
+Announcement
+Email waterfalls by company size, AI content generation with HeyGen, ElevenLabs, Captions and more!
+Introducing optimized work email waterfalls for SMB and enterprise companies, new AI content creation tools with HeyGen and ElevenLabs for avatar videos and voiceovers, enhanced video capabilities with Captions 2.0's custom backgrounds, and a critical V2 API migration for Instantly users. We've also redesigned our enrichment panel for easier discovery, and added powerful integrations with Za-zu for cold email sequencing, Firmable for Australian contact data, and Groove for revenue workflow automation.
+Learn more
+Jan 31, 2025
+Similarweb integration, Loom transcripts, Bitly integration, improved company search, and more!
+Feature highlight
+Beta
+Announcement
+Similarweb integration, Loom transcripts, Bitly integration, improved company search, and more!
+Introducing website analytics with Similarweb integration, enhanced people search filtering across current and past roles, follower-based company discovery improvements, a new verified contact data provider with Better Contact, plus handy integrations with Loom for video transcripts and Bitly for link management. We've also streamlined the UI with improved AI feature access and table organization.
+Learn more
+Dec 20, 2024
+Enhanced table exclusions, simplified email sequencers, Notion integration, Google Docs integration, and more!
+Feature highlight
+Beta
+Announcement
+Enhanced table exclusions, simplified email sequencers, Notion integration, Google Docs integration, and more!
+Introducing powerful table exclusion capabilities across company and people searches, a simplified sequencer export model supporting nine platforms, new integrations with Notion and Google Docs, natural language YouTube search, AI-assisted API configuration, and enhanced financial filings analysis.
+Learn more
+Dec 06, 2024
+HubSpot Integration Updates, YouTube Transcripts, Versium, Influencers Club, and More!
+Feature highlight
+Beta
+Announcement
+HubSpot Integration Updates, YouTube Transcripts, Versium, Influencers Club, and More!
+Announcing our enhanced HubSpot integration, YouTube transcript extraction, new growth marketing tools with Versum, Influencers Club, and Brand Fetch, improved message drafting, color-coded columns, upgraded Twain sequences, and Full Enrich contact data enrichment.
+Learn more
+Nov 15, 2024
+Find AI, Improved People Search, JSON Inputs, Weighted Round Robin, New Integrations, and more!
+Feature highlight
+Beta
+Announcement
+Find AI, Improved People Search, JSON Inputs, Weighted Round Robin, New Integrations, and more!
+Clay’s latest features include AI-powered natural language search with Find AI, improved job title and location search, weighted round robin lead distribution, data feedback options, job promotion signals, and new integrations with Influencer Club, Reply.io, Pipl, Wiza, and FullContact.
+Learn more
+Nov 01, 2024
+Metaprompter, shared workbooks, new hire signals, Outreach integration, and more!
+Feature highlight
+Beta
+Announcement
+Metaprompter, shared workbooks, new hire signals, Outreach integration, and more!
+Clay’s latest features include AI-powered prompt creation, shared workbook templates, combined waterfall UI, new hire tracking, and the latest Outreach integration.
+Learn more
+Oct 10, 2024
+Round-robin lead enrichment
+Feature highlight
+Beta
+Announcement
+Round-robin lead enrichment
+Fairly assign leads to reps in Clay
+You can now fairly route companies or leads amongst your SDRs using Clay!
+Learn more
+Oct 07, 2024
+AI action consolidation
+Feature highlight
+Beta
+Announcement
+AI action consolidation
+We are aggregating the AI experience across Claygent, Anthropic, OpenAI, and Gemini into one single enrichment called “Use AI"!
+Learn more
+Oct 04, 2024
+Re-order table views
+Feature highlight
+Beta
+Announcement
+Re-order table views
+Quick update: you can now reorder your table views in Clay! Just drag and move them around to update.
+Learn more
+Sep 16, 2024
+Run individual rows
+Feature highlight
+Beta
+Announcement
+Run individual rows
+You can now (1) run individually selected rows and (2) get cost estimates! Just right click on the selected rows, or click "row actions" on the top right. Watch the video to learn more.
+Learn more
+Aug 20, 2024
+Clay workbooks
+Feature highlight
+Beta
+Clay workbooks
+Manage multi-table campaigns in one place
+Workbooks allow you to manage Clay workflows that span multiple tables. You can organize multiple tables into a single workbook, and visualize the relationships across these tables in the overview page.
+Learn more
+Aug 19, 2024
+Custom waterfalls
+Feature highlight
+Beta
+Announcement
+Custom waterfalls
+Conditionally run any set of enrichments
+Create your own waterfalls to conditionally run any set of enrichments.
+Learn more
+Jul 30, 2024
+New Global Navigation
+Feature highlight
+Beta
+Improvement
+New Global Navigation
+We're excited to introduce a refreshed global navigation bar at the top of your Clay workspace. With this new navigation, you can:
+Navigate the entire workspace seamlessly while in a table
+Rename your table effortlessly by double-tapping on the name
+Keep track of your credits and see when they are running low
+Learn more
+Jul 15, 2024
+Introducing Claygent Neon
+Feature highlight
+Beta
+Announcement
+Introducing Claygent Neon
+Six months ago, our team introduced Claygent, an AI web researcher, to the world. We have been amazed by the creative ways our community has used Claygent for a wide range of research applications, helping teams accomplish tasks that used to take hours of manual work in minutes.
+With Claygent, our goal was to help users go beyond the limitations of traditional data providers, turning the entire internet into their canvas for prospecting and go-to-market research.
+Today, we are thrilled to announce the next evolution of Claygent: Neon. Read more about it below, or watch this video for a live demo and walkthrough!
+Learn more
+Jul 09, 2024
+Find Employee Headcount by Country
+Feature highlight
+Beta
+Announcement
+Find Employee Headcount by Country
+You can search companies by their LinkedIn URL, domain, SalesNav URL, or SalesNav ID. There’s also over 10+ ways to filter your headcount including department, title, years of experience, location, education, and more!
+Learn more
+Jul 05, 2024
+LeadMagic Mobile Number Finder
+Feature highlight
+Beta
+Announcement
+LeadMagic Mobile Number Finder
+You can now use LeadMagic to find mobile numbers, find work emails, and validate emails! Find it in the enrichment panel, or in the mobile number and work email waterfalls.
+Learn more
+Jul 05, 2024
+Improved Google Maps source
+Feature highlight
+Beta
+Improvement
+Improved Google Maps source
+To enable this, turn on the Preferred Google API toggle in the Google Maps source. This costs 1 credit per result. If you prefer not to use any credits, you can turn this toggle off and use the old version of this source, which is still free and still limited to 200 sparser results.
+Learn more
+Jul 04, 2024
+Magic Column
+Feature highlight
+Beta
+Announcement
+Magic Column
+Hello beautiful Clay people! We're very excited to announce the full release of a new feature colloquially known as "Magic Column"!
+Magic Column is a new way to access enrichments! Simply type in a description of the type of data you're looking for and press the button! A relevant enrichment will (hopefully) show up. This feature is still a work in progress. We've added a feedback banner to the enrichments that are shown through Magic Column, receiving feedback is key to improving the results!
+Looking forward to seeing what results everyone searches up, and we'll be working diligently to improve the feature as feedback comes in. Happy searching + enriching!
+Learn more
+Jul 03, 2024
+Workflows
+Feature highlight
+Beta
+Announcement
+Workflows
+Hi folks!
+Workflows help you manage end to end GTM pipelines, directly within Clay. They are designed to help guide you through, and streamline your prospecting efforts.
+You can create your first Workflow in the Clay homepage.
+With this initial release, we are supporting three primary Workflows:
+1. Cold outreach to people
+2. Cold outreach to people at companies
+3. CRM enrichment
+Keep posted! New updates to Workflows are in progress as we speak 🤠
+Learn more
+May 09, 2024
+New RSS Feed reader source
+Feature highlight
+Beta
+Announcement
+New RSS Feed reader source
+RSS Feeds are an easy way to stay up to date with your favorite websites, such as blogs or online magazines. If a site offers an RSS feed, now you can get the feed data directly populated in a Clay table (updated every hour)! There’s a lot of neat things you can do here such a using AI to write summaries, or filtering articles relevant to topics/trends, and much more!
+Learn more about setting up the source yourself below 🙊
+Learn more
+May 08, 2024
+New self-serve annual plans
+Feature highlight
+Beta
+Announcement
+New self-serve annual plans
+Exciting news! Sign up to get a year's worth of credits upfront, with a 10% discount! 👽
+Exciting news! Sign up to get a year's worth of credits upfront, with a 10% discount! 👽
+Learn more
+Apr 29, 2024
+Editable Waterfalls
+Feature highlight
+Beta
+Improvement
+Editable Waterfalls
+PSA: Waterfalls are now editable!!!
+We’ve all been there. You ran a waterfall to check the results, and then after checking the results, realized you wanted to reorder, add, or remove providers and rerun … only to realize you just had to recreate the whole waterfall.
+NO LONGER!
+Now, you can now edit any waterfall (to add, remove, or replace providers/ validation providers) and re-run the same one instead! Just click on the waterfall result column and then “Edit Column”! Here's a video with a full walkthrough. Quick note: all provider columns will now be hidden by default but you can use the "Hide Providers" toggle to turn this off on initial setup or subsequent editing!
+P.S - You can now also delete an entire waterfall by just deleting the result field too.
+Learn more
+Apr 25, 2024
+Gemini Integration
+Feature highlight
+Beta
+Announcement
+Gemini Integration
+Releasing the integration of Google Gemini. You can now use Google's LLM chat model to generate responses, emails, and text in Clay.
+Learn more
+Apr 24, 2024
+Anthropic Claude Integration
+Feature highlight
+Beta
+Announcement
+Anthropic Claude Integration
+Releasing the integration of Anthropic's Claude AI. You can now use the Claude AI chat model to generate responses, emails, and text in Clay.
+Learn more
+Apr 16, 2024
+Semantic Search in the Enrichments Panel
+Feature highlight
+Beta
+Improvement
+Semantic Search in the Enrichments Panel
+Adding the ability for improved search results in the Enrichments Panel. The search is now powered by a combination of Lexical (keyword) and Semantic Search. This allows for longer form search queries to be entered into the search input bar.
+The results aren't perfect, but that's where you (the users) come in! I've added the ability to provide feedback on each of the rows listed in the search results. To make searching for enrichments better, it would greatly help us if everyone would 1) try typing in queries longer than 2 words and 2) click on the "thumbs up" or "thumbs down" buttons to give feedback on your satisfaction with the results being shown. Looking forward to seeing what all queries everyone types in, thanks!
+Learn more
+Apr 15, 2024
+Exciting news! In-platform referrals for all workspaces
+Feature highlight
+Beta
+Announcement
+Exciting news! In-platform referrals for all workspaces
+Users will be able to track their referral history and credits earned for each workspace in their workspace settings, under a new 'Referrals' tab 🥳
+Users will now have in-platform referrals enabled for all of their workspaces. You now have access to a unique referral link through each of your workspaces. When a new user signs up with this referral link and activates a paid account with Clay, both the referrer and the referred user will automatically receive 3,000 credits towards their respective workspace credit balances.
+Users will be able to track their referral history and credits earned for each workspace in their workspace settings, under a new 'Referrals' tab 🥳
+Learn more
+Apr 14, 2024
+Auto-dedupe
+Feature highlight
+Beta
+Announcement
+Auto-dedupe
+Configure your table such that duplicates records are automatically deleted. This will help keep the data in your table clean while also reducing spend on accidentally enriching the same record twice!
+Learn more
+Apr 12, 2024
+Automate LinkedIn messages with La Growth Machine
+Feature highlight
+Beta
+Announcement
+Automate LinkedIn messages with La Growth Machine
+Now, Clay integrates with La Growth Machine, which lets you send LinkedIn messages automatically!
+Once you've set up a LinkedIn message campaign and an audience in La Growth Machine, you can send leads from Clay to an LGM audience using the Create Lead LGM action. You can pass LGM up to 10 custom attributes per lead, so you can personalize the message you send them. You can also look up a lead in LGM from Clay with the Search Lead action.You'll find these two actions in the enrichment panel. One thing to watch out for - La Growth Machine only accepts strings as custom attributes, not numbers, booleans, or any other data type.Check out the video to see it in action. Let us know if you have any questions!
+Learn more
+Apr 08, 2024
+Increases in Clay's Find People Searches
+Feature highlight
+Beta
+Announcement
+Increases in Clay's Find People Searches
+There's a big upgrade to Clay's people search. We've bumped all of the search limitations to the following:
+- 2,500 profiles for the Free plan
+- 5,000 profiles for the Starter plan
+- 25,000 profiles for the Explorer plan
+- 50,000 profiles for the Pro plan
+Happy people finding ❤️
+Learn more
+Apr 07, 2024
+Get suggested enrichments for your tables
+Feature highlight
+Beta
+Announcement
+Get suggested enrichments for your tables
+Now Clay will suggest useful and common enrichments that you can add to your table based on existing columns. Right now only 15 of the top enrichments can be suggested, but we'll be continuously adding more and more 😊
+Learn more
+Apr 04, 2024
+Get more website data with Semrush's Get Traffic Analytics
+Feature highlight
+Beta
+Announcement
+Get more website data with Semrush's Get Traffic Analytics
+You can now get information like users, visits, traffic rate, and bounce rate for a URL. Better yet- break down these results by device type, channel, and paid vs organic.
+We support domains, subdomains, and subfolders; you can get specific results for app.mywebsite.com or mywebsite.com/blog 🤯
+Try the Semrush enrichment out by adding it from the enrichments panel. Check out this wonderful video to see it in action 👊
+Learn more
+Apr 04, 2024
+Pull in data from any actor with Apify
+Feature highlight
+Beta
+Announcement
+Pull in data from any actor with Apify
+Clay's new Apify source can pull in data from any specified actor run or just the latest actor run. You can use it to simplify your workflows by eliminating the need to use Make.com as an intermediary tool to get Apify data into Clay.
+You can find it in the Source Modal under "other". One thing to note is that if you'd like your table to automatically updated with all data from subsequent future runs from an actor, you shouldn't specify a particular run as an input. Learn more here 👇
+Learn more
+Apr 02, 2024
+Find more data with Clay's new enrichment search UI
+Feature highlight
+Beta
+Announcement
+Find more data with Clay's new enrichment search UI
+The Enrichments Panel has a new and improved UI! It's drastically different than the old UI, with the aim being to better surface what enrichments are available in the product.
+The Enrichments Panel has a new and improved UI! It's drastically different than the old UI, with the aim being to better surface what enrichments are available in the product.
+The new Enrichments Panel contains different subsections, categorized to make it easier for users to find what they need. The idea behind the change was to explicitly surface "what" is possible in the product in the first view. Upon clicking a card / pill in the first view, options are provided to show "how" a user can complete their desired task. Attributes, Integrations, Recipes, and Providers are all present in the new panel (hopefully in a way that makes using them easier and more obvious). The same search panel UI still exists, with a search bar near the top of the panel.
+The panel can be accessed via the "Enrich Data" button in the top right corner of a table, or via the "Add Column" button on the right most column of each table.
+Learn more
+Mar 20, 2024
+More Salesforce records
+Feature highlight
+Beta
+Improvement
+More Salesforce records
+Now, when you start a table with records from Salesforce, you're no longer limited to 2000 records!
+The only exception for this is when you're creating a Clay table from a SOQL-incompatible Salesforce view, in which case you're still limited to 2000 records. SOQL-incompatible views are relatively rare.
+For more details on them, check out this in-depth discussion linked below.
+Learn more
+Show More
+Turn your growth ideas into reality today
+Start your 14-day Pro trial today. No credit card required.
+Start building for free
+Go to market with unique data—and the ability to act on it
+Start building for free
+Contact us
+Automated inbound
+Account research
+PLG assist
+Rep assist
+Reverse ETL
+Outbound
+CRM Enrichment
+TAM Sourcing
+OpenAI
+Vanta
+Verkada
+Sendoso
+Anthropic
+Coverflex
+Rippling
+Mistral AI
+Case studies
+Product
+Claygent AI
+Sculptor
+Sequencer
+Multi-provider data enrichment
+Audiences
+Signals
+Integrations
+Changelog
+Blog
+The rise of the GTM engineer
+Finding GTM alpha
+Clay reaches 100M ARR
+Series C: The GTM engineering era begins now
+Get started lesson
+University
+Use case templates
+Hire GTME talent
+Partner programs
+Community
+Company
+Contact us
+Jobs
+Integrate with Clay
+Status
+Legal
+Privacy policy
+Terms of service
+Do not sell my data
+OpenAI
+Vanta
+Verkada
+Sendoso
+Anthropic
+Coverflex
+Rippling
+Case studies
+Legal
+Privacy policy
+Terms of service
+Do not sell my data
+© Clay 2026 – Born in Brooklyn. Claymation illustrations by the wonderful Hudson Christie .

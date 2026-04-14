@@ -1,21 +1,16 @@
-"""Simple entry point for refreshing Clay knowledge files."""
+"""Run the Clay refresh pipeline end to end."""
 
-from pathlib import Path
-from datetime import datetime
-
-
-ROOT = Path(__file__).resolve().parent.parent
-LOG_FILE = ROOT / "logs" / "refresh_log.md"
+from clay_refresh import run_refresh
 
 
 def main() -> None:
-    timestamp = datetime.now().isoformat(timespec="seconds")
-    message = f"- Refresh started at {timestamp}\n"
-    LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
-    with LOG_FILE.open("a", encoding="utf-8") as log_file:
-        log_file.write(message)
-    print("Logged Clay knowledge refresh start.")
+    result = run_refresh()
+    print(
+        f"[done] checked {result['source_count']} sources, "
+        f"meaningful changes: {result['meaningful_change_count']}"
+    )
 
 
 if __name__ == "__main__":
     main()
+

@@ -1,0 +1,198 @@
+Signals & ABM
+CRM Enrichment
+Automated Inbound
+How to Use HG Insights in Clay
+TAM Sourcing
+Clay in ChatGPT
+Audiences
+Functions
+Course index
+Use case templates
+Clay 101: GTM Automation
+Limitless Research
+AI-Powered GTM Automation
+Automated Outbound
+Signals & ABM
+CRM Enrichment
+Automated Inbound
+How to Use HG Insights in Clay
+TAM Sourcing
+Clay in ChatGPT
+Audiences
+Functions
+Course index
+Use case templates
+Clay 101: GTM Automation
+Limitless Research
+AI-Powered GTM Automation
+Automated Outbound
+Signals & ABM
+CRM Enrichment
+Automated Inbound
+How to Use HG Insights in Clay
+TAM Sourcing
+Clay in ChatGPT
+Audiences
+Functions
+Learn and master Clay with Clay university
+Featured in Clay University
+All courses
+Signals & ABM
+Signals & ABM
+Master Signal Orchestration, Account-Based Marketing, and Intelligence-Driven Advertising to Build proactive GTM engines.
+Start course
+This course includes
+Understand signals in Clay
+Set up different signal types
+Build custom signal workflows
+Execute advanced signal stacking strategies
+Run end-to-end ABM campaigns in Clay
+Launch ad intelligence campaigns
+Learn how to build sophisticated signal orchestration systems that detect and reveal genuine buying intent proactively, execute precision account-based marketing campaigns that penetrate high-value accounts, and transform advertising from anonymous impressions into qualified pipeline. You'll learn to combine multiple signals into scoring systems, progress accounts through defined ABM stages with automated workflows, and identify exactly who engages with your campaigns—creating a unified intelligence layer that connects every touchpoint from first awareness to closed deal.
+In this course
+Intro to Signals in Clay
+Intro to Signals in Clay
+7 min
+View lesson View lesson
+Types of Signals in Clay
+Types of Signals in Clay
+5 min
+View lesson View lesson
+Setting Up Signals in Clay
+Setting Up Signals in Clay
+5 min
+View lesson View lesson
+Building Custom Signals in Clay
+Building Custom Signals in Clay
+6 min
+View lesson View lesson
+Advanced Strategies with Signals
+Advanced Strategies with Signals
+4 min
+View lesson View lesson
+ClayBM: ABM in Clay
+ClayBM: ABM in Clay
+6 min
+View lesson View lesson
+ABM and Ad Intelligence in Clay
+ABM and Ad Intelligence in Clay
+6 min
+View lesson View lesson
+Skills you’ll gain
+Detect and orchestrate buying signals in Clay
+Monitor any data point with custom signals
+Execute precision ABM campaigns
+Create multi-signal scoring models
+Run intelligence-driven advertising
+Start course
+Explore other courses
+Clay 101: GTM Automation
+Beginner
+Learn all the fundamentals you need to navigate Clay seamlessly when getting started
+Intro to Clay 101: FETE & Jigsaw
+Intro to Clay 101: FETE & Jigsaw Intro to Clay 101: FETE & Jigsaw
+Your First GTM Use Case
+Your First GTM Use Case Your First GTM Use Case
+How to Experiment Inside of Clay
+How to Experiment Inside of Clay How to Experiment Inside of Clay
+View course View course
+Limitless Research
+Intermediate
+Stop copy/pasting data into your CRM and learn how to harness the power of web scraping to turbocharge your revenue org
+Intro to Web Scraping
+Intro to Web Scraping Intro to Web Scraping
+Prompt Engineering Crash Course
+Prompt Engineering Crash Course Prompt Engineering Crash Course
+Claygent: AI Web Scraper
+Claygent: AI Web Scraper Claygent: AI Web Scraper
+View course View course
+AI-Powered GTM Automation
+Intermediate
+Unlock GTM alpha with AI workflows that save time, reduce costs, and drive conversion
+How AI is Reshaping Go-to-Market Strategy
+How AI is Reshaping Go-to-Market Strategy How AI is Reshaping Go-to-Market Strategy
+GTM's AI Toolbox: The FETC Framework
+GTM's AI Toolbox: The FETC Framework GTM's AI Toolbox: The FETC Framework
+Best Practices To Maximize Your Credits
+Best Practices To Maximize Your Credits Best Practices To Maximize Your Credits
+View course View course
+Automated Outbound
+Beginner
+Learn how to build fully automated, 1:1 outbound campaigns using AI in Clay
+Intro to Personalized Outreach at Scale
+Intro to Personalized Outreach at Scale Intro to Personalized Outreach at Scale
+Enrich Companies (Waterfalls)
+Enrich Companies (Waterfalls) Enrich Companies (Waterfalls)
+Enrich People (Waterfalls)
+Enrich People (Waterfalls) Enrich People (Waterfalls)
+View course View course
+CRM Enrichment
+Intermediate
+Build data hygiene processes for your CRM at scale, and keep it automatically up-to-date.
+Intro to CRM Enrichment
+Intro to CRM Enrichment Intro to CRM Enrichment
+Importing from your CRM
+Importing from your CRM Importing from your CRM
+Clay x HubSpot Actions
+Clay x HubSpot Actions Clay x HubSpot Actions
+View course View course
+Automated Inbound
+Intermediate
+Learn how to automatically enrich, score, and follow-up with inbound leads with Clay's inbound automation engine for lightning-fast speed-to-lead.
+Intro to Inbound Automation
+Intro to Inbound Automation Intro to Inbound Automation
+Connecting Inbound Lead Sources
+Connecting Inbound Lead Sources Connecting Inbound Lead Sources
+Clay Inbound Automation: End-to-End Workflow
+Clay Inbound Automation: End-to-End Workflow Clay Inbound Automation: End-to-End Workflow
+View course View course
+How to Use HG Insights in Clay
+Intermediate
+Diving deep into one of the most powerful enrichment providers in Clay's arsenal: HG Insights.
+What is HG Insights
+What is HG Insights What is HG Insights
+HG Insights in Action
+HG Insights in Action HG Insights in Action
+Building Company Lists Based on Tech Stack
+Building Company Lists Based on Tech Stack Building Company Lists Based on Tech Stack
+View course View course
+TAM Sourcing
+Intermediate
+Learn how to systematically map your entire addressable market with Clay's real-time data and identify high-intent prospects ready to buy.
+Introduction to TAM Sourcing
+Introduction to TAM Sourcing Introduction to TAM Sourcing
+Understanding your ICP
+Understanding your ICP Understanding your ICP
+TAM Sourcing Workflows in Clay
+TAM Sourcing Workflows in Clay TAM Sourcing Workflows in Clay
+View course View course
+Clay in ChatGPT
+Beginner
+Learn how to use Clay's enrichment and research tools directly inside ChatGPT to find contacts, research accounts, and craft personalized outreach, all in a single conversation.
+What is Clay in ChatGPT?
+What is Clay in ChatGPT? What is Clay in ChatGPT?
+Setting up Clay in ChatGPT
+Setting up Clay in ChatGPT Setting up Clay in ChatGPT
+Best practices for Clay in ChatGPT
+Best practices for Clay in ChatGPT Best practices for Clay in ChatGPT
+View course View course
+Audiences
+Beginner
+Learn how RevOps teams use Clay Audiences to build a unified data layer so you can sync your CRM, create dynamic segments, and activate your data at enterprise scale.
+What is Clay Audiences?
+What is Clay Audiences? What is Clay Audiences?
+How Audiences Works: Import, Enrich, Action, Export
+How Audiences Works: Import, Enrich, Action, Export How Audiences Works: Import, Enrich, Action, Export
+Setting Up Audiences
+Setting Up Audiences Setting Up Audiences
+View course View course
+Functions
+Beginner
+Learn how to build reusable enrichment workflows in Clay — called Functions — so you can standardize your best logic, eliminate duplicate work, and propagate changes across every table the moment you make them.
+Introduction to Functions
+Introduction to Functions Introduction to Functions
+Build Your First Function
+Build Your First Function Build Your First Function
+Roll Functions Out Across Your Team
+Roll Functions Out Across Your Team Roll Functions Out Across Your Team
+View course View course

@@ -1,0 +1,92 @@
+Webhooks in Clay - Clay Docs
+Search University or ask AI. Learn your way.
+Use case templates
+Doc Topics
+Getting started
+Find
+Enrich
+Transform
+Web scraping
+Gen AI
+Export
+Settings & admin
+Signals & triggers
+Use case templates
+Doc Topics
+Getting started
+Find
+Enrich
+Transform
+Web scraping
+Gen AI
+Export
+Settings & admin
+Signals & triggers
+Use case templates
+Doc Topics
+Getting started
+Find
+Enrich
+Transform
+Web scraping
+Gen AI
+Export
+Settings & admin
+Signals & triggers
+All docs
+Find
+Webhooks in Clay
+Webhooks in Clay
+Real-time data updates enabling application integrations and automated workflows.
+Webhooks enable Clay to automatically receive data from other applications through HTTP POST requests in JSON format whenever specific events occur.
+Your table updates instantly with new data, eliminating manual entry. This feature is particularly valuable for real-time updates, such as when adding new leads or modifying records based on external triggers.
+Creating a table with webhook
+In a workbook, click + Add at the bottom.
+Search for Webhooks and click Monitor webhook .
+Copy the URL/cURL.
+URL: Paste this URL into the application sending data to Clay. This URL is where your data will be sent.
+cURL: Paste the cURL command into your command line to send data directly to Clay.
+Optionally, add authentication token. To secure your webhook, you can include an authentication token in the header of your request.
+Make sure to copy the token immediately, as you can only access authentication tokens once.
+Note: Webhook sources are limited to 50,000 submissions, and this limit persists even after deleting rows. Once you reach this limit, you’ll need to create a new webhook to continue receiving data.
+Enterprise Plan: Enable auto-delete (also called passthrough tables) to automatically process and delete rows, allowing unlimited webhook submissions. Learn more in table management settings .
+Table of contents
+TOC Heading
+TOC Heading
+Plan
+Explorer
+Explore other docs
+Find
+ContactLevel integration
+Enrich contacts in Clay with SHA-256 hashed personal email addresses for use in high-match ad audiences.
+View article
+View article View article
+Enrich
+Google BigQuery integration
+Import records from BigQuery into Clay using SQL queries, and send enriched data back by inserting, looking up, updating, or upserting rows in your BigQuery tables.
+View article
+View article View article
+Find
+Enigma integration
+View article
+View article View article
+Find
+Vector integration
+Find hashed emails with Vector.
+View article
+View article View article
+Enrich
+CB Insights
+Enrich company records with funding history, valuations, revenue ranges, industry classifications, and more.
+View article
+View article View article
+Getting started
+Functions
+Functions let you convert any enrichment sequence into a reusable workflow. Once created, you can use it across any table — and any updates you make to the function automatically apply everywhere it's used.
+View article
+View article View article
+Find
+Work Email waterfall
+Find and validate work emails faster — the Work Email waterfall cascades across multiple providers in sequence, stopping as soon as a valid result is found.
+View article
+View article View article

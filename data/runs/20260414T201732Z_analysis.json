@@ -1,0 +1,172 @@
+{
+  "run_at": "2026-04-14T20:17:32.996264+00:00",
+  "source_count": 5,
+  "meaningful_change_count": 5,
+  "sources": [
+    {
+      "name": "Sources Docs",
+      "kind": "sources",
+      "url": "https://university.clay.com/docs/sources",
+      "status": "ok",
+      "previous_snapshot": null,
+      "current_snapshot": "20260414T201732Z.txt",
+      "previous_hash": null,
+      "current_hash": "57beadf9996a33e8394432c657c69e1a633401d13b81a0c4108ccd14c358e8f9",
+      "meaningful_change": true,
+      "reason": "initial baseline captured",
+      "similarity": 0.0,
+      "added_count": 134,
+      "removed_count": 0,
+      "summary": "Added: Every Clay table begins with a source. Sources are the foundation of how data gets into your tables.; Sources are the foundation of Clay and determine how data flows into your table\u2014think of them as the roots of a tree feeding information into your database. Just like a tree needs strong roots to grow and thrive, every Clay table needs well-configured sources to function effectively.; Every Clay table starts with a source. You can import customer data from a CSV file, connect to your CRM system, or receive real-time updates through webhooks. Sources are your gateway to organizing and managing data in Clay.",
+      "top_added": [
+        "Every Clay table begins with a source. Sources are the foundation of how data gets into your tables.",
+        "Sources are the foundation of Clay and determine how data flows into your table\u2014think of them as the roots of a tree feeding information into your database. Just like a tree needs strong roots to grow and thrive, every Clay table needs well-configured sources to function effectively.",
+        "Every Clay table starts with a source. You can import customer data from a CSV file, connect to your CRM system, or receive real-time updates through webhooks. Sources are your gateway to organizing and managing data in Clay."
+      ],
+      "top_removed": [],
+      "reference_targets": [
+        "clay-changelog-notes.md",
+        "clay-workflows.md"
+      ],
+      "source_routes": [
+        "clay-workflows.md",
+        "clay-limitations.md",
+        "clay-changelog-notes.md"
+      ]
+    },
+    {
+      "name": "Enrichments Docs",
+      "kind": "enrichments",
+      "url": "https://university.clay.com/docs/enrichments",
+      "status": "ok",
+      "previous_snapshot": null,
+      "current_snapshot": "20260414T201732Z.txt",
+      "previous_hash": null,
+      "current_hash": "0ad2e87e29bcefa48a193099e5efc6e2d2cbc8b6425b837a517524995b62803d",
+      "meaningful_change": true,
+      "reason": "initial baseline captured",
+      "similarity": 0.0,
+      "added_count": 116,
+      "removed_count": 0,
+      "summary": "Added: Learn how to run an enrichment within Clay.; Enrichments in Clay transform your data by pulling in additional information from various sources. Whether you need to verify email addresses, gather company details, or find social media profiles, Clay's enrichment tools enhance your data quickly and efficiently.; You can run enrichments individually, use pre-built templates, or create powerful recipes to automate complex workflows.",
+      "top_added": [
+        "Learn how to run an enrichment within Clay.",
+        "Enrichments in Clay transform your data by pulling in additional information from various sources. Whether you need to verify email addresses, gather company details, or find social media profiles, Clay's enrichment tools enhance your data quickly and efficiently.",
+        "You can run enrichments individually, use pre-built templates, or create powerful recipes to automate complex workflows."
+      ],
+      "top_removed": [],
+      "reference_targets": [
+        "clay-capabilities.md",
+        "clay-changelog-notes.md",
+        "clay-workflows.md"
+      ],
+      "source_routes": [
+        "clay-capabilities.md",
+        "clay-workflows.md",
+        "clay-limitations.md",
+        "clay-changelog-notes.md"
+      ]
+    },
+    {
+      "name": "Bulk Enrichment Docs",
+      "kind": "bulk-enrichment",
+      "url": "https://university.clay.com/docs/bulk-enrichment",
+      "status": "ok",
+      "previous_snapshot": null,
+      "current_snapshot": "20260414T201732Z.txt",
+      "previous_hash": null,
+      "current_hash": "422115151d4ebf16839886604a01d351c4da5c0953f62337d51f7d9dff716f6a",
+      "meaningful_change": true,
+      "reason": "initial baseline captured",
+      "similarity": 0.0,
+      "added_count": 106,
+      "removed_count": 0,
+      "summary": "Added: Enrich millions of rows quickly, securely, and at scale. No row limits, no slowdown.; Bulk enrichment makes it easy to process massive datasets\u2014no row limits, no slowdown. Enrich millions of rows quickly, securely, and at scale.; You'll get the full power of Clay's enrichment engine without storing data inside Clay. Results are sent directly to your external destinations, like Salesforce, Snowflake, or Google Sheets, keeping your systems continuously enriched and in sync.",
+      "top_added": [
+        "Enrich millions of rows quickly, securely, and at scale. No row limits, no slowdown.",
+        "Bulk enrichment makes it easy to process massive datasets\u2014no row limits, no slowdown. Enrich millions of rows quickly, securely, and at scale.",
+        "You'll get the full power of Clay's enrichment engine without storing data inside Clay. Results are sent directly to your external destinations, like Salesforce, Snowflake, or Google Sheets, keeping your systems continuously enriched and in sync."
+      ],
+      "top_removed": [],
+      "reference_targets": [
+        "clay-capabilities.md",
+        "clay-changelog-notes.md",
+        "clay-limitations.md"
+      ],
+      "source_routes": [
+        "clay-capabilities.md",
+        "clay-workflows.md",
+        "clay-limitations.md",
+        "clay-changelog-notes.md"
+      ]
+    },
+    {
+      "name": "HTTP API Docs",
+      "kind": "http-api",
+      "url": "https://www.clay.com/university/lesson/http-api-clay-101",
+      "status": "ok",
+      "previous_snapshot": null,
+      "current_snapshot": "20260414T201732Z.txt",
+      "previous_hash": null,
+      "current_hash": "72fdf01474df4dc28d3f4eeaeb178e5719adb385710be1cadf2d70e94cbae748",
+      "meaningful_change": true,
+      "reason": "initial baseline captured",
+      "similarity": 0.0,
+      "added_count": 398,
+      "removed_count": 0,
+      "summary": "Added: Facilitate seamless integration and connectivity with any APIs.; HTTP API helps you send or retrieve data from any tool or database using an API endpoint. From pulling Gong transcripts into your Clay table to referencing Marketo's API, you can call any API, even if Clay does not offer a native integration.; An HTTP API uses HTTP methods (GET, POST, PUT, DELETE) to enable communication between different systems. An API is a set of defined rules that allow applications to interact with each other, while HTTP is the protocol that defines how these requests and responses are formatted and transmitted.",
+      "top_added": [
+        "Facilitate seamless integration and connectivity with any APIs.",
+        "HTTP API helps you send or retrieve data from any tool or database using an API endpoint. From pulling Gong transcripts into your Clay table to referencing Marketo's API, you can call any API, even if Clay does not offer a native integration.",
+        "An HTTP API uses HTTP methods (GET, POST, PUT, DELETE) to enable communication between different systems. An API is a set of defined rules that allow applications to interact with each other, while HTTP is the protocol that defines how these requests and responses are formatted and transmitted."
+      ],
+      "top_removed": [],
+      "reference_targets": [
+        "clay-capabilities.md",
+        "clay-changelog-notes.md",
+        "clay-workflows.md"
+      ],
+      "source_routes": [
+        "clay-capabilities.md",
+        "clay-workflows.md",
+        "clay-limitations.md",
+        "clay-open-questions.md",
+        "clay-changelog-notes.md"
+      ]
+    },
+    {
+      "name": "Webhooks Docs",
+      "kind": "webhooks",
+      "url": "https://university.clay.com/docs/webhook-integration-docs",
+      "status": "ok",
+      "previous_snapshot": null,
+      "current_snapshot": "20260414T201732Z.txt",
+      "previous_hash": null,
+      "current_hash": "ad610de7b998e8ab8fda1f8c4d228dbe3721aebe78aee6b2ad321d685e59c057",
+      "meaningful_change": true,
+      "reason": "initial baseline captured",
+      "similarity": 0.0,
+      "added_count": 92,
+      "removed_count": 0,
+      "summary": "Added: Real-time data updates enabling application integrations and automated workflows.; Webhooks enable Clay to automatically receive data from other applications through HTTP POST requests in JSON format whenever specific events occur.; Your table updates instantly with new data, eliminating manual entry. This feature is particularly valuable for real-time updates, such as when adding new leads or modifying records based on external triggers.",
+      "top_added": [
+        "Real-time data updates enabling application integrations and automated workflows.",
+        "Webhooks enable Clay to automatically receive data from other applications through HTTP POST requests in JSON format whenever specific events occur.",
+        "Your table updates instantly with new data, eliminating manual entry. This feature is particularly valuable for real-time updates, such as when adding new leads or modifying records based on external triggers."
+      ],
+      "top_removed": [],
+      "reference_targets": [
+        "clay-capabilities.md",
+        "clay-changelog-notes.md",
+        "clay-workflows.md"
+      ],
+      "source_routes": [
+        "clay-capabilities.md",
+        "clay-workflows.md",
+        "clay-limitations.md",
+        "clay-open-questions.md",
+        "clay-changelog-notes.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,969 @@
+<!DOCTYPE html><!-- This site was created in Webflow. https://webflow.com --><!-- Last Published: Mon Apr 06 2026 23:01:18 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="university.clay.com" data-wf-page="687e604a5d1cd4a35b576971" data-wf-site="687563213dfbc91a782122b1" lang="en" data-wf-collection="687e60495d1cd4a35b576958" data-wf-item-slug="signals-abm"><head><meta charset="utf-8"/><title>Signals &amp; ABM - Clay University</title><meta content="Master Signal Orchestration, Account-Based Marketing, and Intelligence-Driven Advertising to Build proactive GTM engines." name="description"/><meta content="Signals &amp; ABM - Clay University" property="og:title"/><meta content="Master Signal Orchestration, Account-Based Marketing, and Intelligence-Driven Advertising to Build proactive GTM engines." property="og:description"/><meta content="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d112e39f3e7945aa7c078_ClayU-Youtube-ThumbnailOG-course-6.jpg" property="og:image"/><meta content="Signals &amp; ABM - Clay University" property="twitter:title"/><meta content="Master Signal Orchestration, Account-Based Marketing, and Intelligence-Driven Advertising to Build proactive GTM engines." property="twitter:description"/><meta content="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d112e39f3e7945aa7c078_ClayU-Youtube-ThumbnailOG-course-6.jpg" property="twitter:image"/><meta property="og:type" content="website"/><meta content="summary_large_image" name="twitter:card"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="Webflow" name="generator"/><link href="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/css/wip-clay-university.webflow.shared.76dded8d8.min.css" rel="stylesheet" type="text/css" integrity="sha384-dt3tjYpx7+x9pXAJhemLD/+mRefKNb5MUITWCbxGNv7wY1N1tJaFWZo2soLk1jO3" crossorigin="anonymous"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Inter:300,400,500,600,700"]  }});</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6925046c50b2865b0b710c56_fav-uni.png" rel="shortcut icon" type="image/x-icon"/><link href="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6925043ac3ffd00ea9cd417d_University.png" rel="apple-touch-icon"/><style>
+  html.w-mod-js .page-wrapper {
+    visibility: hidden;
+  }
+</style>
+
+<script id="jetboost-script" type="text/javascript"> window.JETBOOST_SITE_ID = "cmhjcmw3q005a0k0g05tf3dhw"; (function(d) { var s = d.createElement("script"); s.src = "https://cdn.jetboost.io/jetboost.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })(document); </script>
+
+<!-- Finsweet Attributes -->
+<script async type="module"
+        src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js"
+        fs-scrolldisable
+        fs-toc
+        ></script>
+
+<!-- Inkeep -->
+<script
+        id="inkeep-script"
+        type="module"
+        src="https://cdn.jsdelivr.net/npm/@inkeep/cxkit-js@0.5/dist/embed.js"
+        defer
+        ></script>
+
+<!-- global login logic, also handles navbar -->
+<script>
+  (function () {
+    var AUTH_EVENTS = {
+      success: "clay:auth:success",
+      failure: "clay:auth:failure",
+    };
+    var AUTH_STATE_KEY = "__clayAuthState";
+
+    var revealPage = function () {
+      const wrapper = document.querySelector(".page-wrapper");
+      if (wrapper) wrapper.style.visibility = "visible";
+    };
+
+    var setDisplay = function (selector, value) {
+      document.querySelectorAll(selector).forEach(function (el) {
+        el.style.display = value;
+      });
+    };
+
+    var updateState = function (state) {
+      window[AUTH_STATE_KEY] = state;
+    };
+
+    var dispatchAuthEvent = function (type, detail) {
+      try {
+        document.dispatchEvent(new CustomEvent(type, { detail: detail }));
+      } catch (err) {
+        console.error("[Clay] Failed to dispatch auth event:", err);
+      }
+    };
+
+    var showLoggedIn = function () {
+      setDisplay('[logged-in="true"]', "flex");
+      setDisplay('[logged-in="false"]', "none");
+    };
+
+    var showLoggedOut = function () {
+      setDisplay('[logged-in="true"]', "none");
+      setDisplay('[logged-in="false"]', "flex");
+    };
+
+    document.addEventListener("DOMContentLoaded", async function () {
+      updateState({ status: "loading" });
+      showLoggedOut(); // default until we know
+
+      try {
+        var response = await fetch("https://api.clay.com/v3/me", {
+          credentials: "include",
+        });
+
+        if (!response.ok) throw new Error("Not logged in");
+
+        var user = await response.json();
+        if (!user?.id) throw new Error("Missing user data");
+
+        showLoggedIn();
+        updateState({ status: "authenticated", user: user });
+        dispatchAuthEvent(AUTH_EVENTS.success, { user: user });
+
+      } catch (err) {
+        showLoggedOut();
+        updateState({ status: "unauthenticated", error: err });
+        dispatchAuthEvent(AUTH_EVENTS.failure, { error: err });
+
+      } finally {
+        revealPage();
+      }
+    });
+  })();
+</script>
+
+<!-- Segment -->
+<script>
+  // Segment Analytics - auto-initializes, safe to call again via initSegment()
+  (function () {
+    var initialized = false;
+
+    function setMarketingCookie(value) {
+      var expires = new Date();
+      expires.setTime(expires.getTime() + 365 * 24 * 60 * 60 * 1000);
+      document.cookie =
+        "marketing_ajs_anonymous_id=" +
+        value +
+        ";expires=" +
+        expires.toUTCString() +
+        ";path=/;domain=.clay.com;secure;samesite=lax";
+    }
+
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(";");
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") {
+          c = c.substring(1, c.length);
+        }
+        if (c.indexOf(nameEQ) == 0) {
+          return c.substring(nameEQ.length, c.length);
+        }
+      }
+      return null;
+    }
+
+    function initSegment() {
+      if (initialized) {
+        console.log("Segment already initialized");
+        return;
+      }
+
+      var marketingId = getCookie("marketing_ajs_anonymous_id");
+      if (!marketingId) {
+        setMarketingCookie("DEBUG_A");
+      }
+
+      var localStorageId = null;
+      try {
+        localStorageId = window.localStorage.getItem("ajs_anonymous_id");
+      } catch (e) {
+        console.warn("Could not access localStorage", e);
+      }
+
+      var hasSetCookie = false;
+
+      if (localStorageId) {
+        localStorageId = localStorageId.replace(/^"(.*)"$/, "$1");
+        setMarketingCookie(localStorageId);
+        hasSetCookie = true;
+      } else if (!marketingId) {
+        setMarketingCookie("DEBUG_B");
+      }
+
+      var analytics = (window.analytics = window.analytics || []);
+      if (!analytics.initialize) {
+        if (analytics.invoked) {
+          window.console &&
+            console.error &&
+            console.error("Segment snippet included twice.");
+        } else {
+          analytics.invoked = !0;
+          analytics.methods = [
+            "trackSubmit",
+            "trackClick",
+            "trackLink",
+            "trackForm",
+            "pageview",
+            "identify",
+            "reset",
+            "group",
+            "track",
+            "ready",
+            "alias",
+            "debug",
+            "page",
+            "screen",
+            "once",
+            "off",
+            "on",
+            "addSourceMiddleware",
+            "addIntegrationMiddleware",
+            "setAnonymousId",
+            "addDestinationMiddleware",
+            "register",
+          ];
+          analytics.factory = function (e) {
+            return function () {
+              if (window.analytics.initialized) {
+                return window.analytics[e].apply(window.analytics, arguments);
+              }
+              var i = Array.prototype.slice.call(arguments);
+              if (
+                ["track", "screen", "alias", "group", "page", "identify"].indexOf(
+                  e
+                ) > -1
+              ) {
+                var c = document.querySelector("link[rel='canonical']");
+                i.push({
+                  __t: "bpc",
+                  c: (c && c.getAttribute("href")) || void 0,
+                  p: location.pathname,
+                  u: location.href,
+                  s: location.search,
+                  t: document.title,
+                  r: document.referrer,
+                });
+              }
+              i.unshift(e);
+              analytics.push(i);
+              return analytics;
+            };
+          };
+          for (var i = 0; i < analytics.methods.length; i++) {
+            var key = analytics.methods[i];
+            analytics[key] = analytics.factory(key);
+          }
+          analytics.load = function (key, i) {
+            var t = document.createElement("script");
+            t.type = "text/javascript";
+            t.async = !0;
+            t.src =
+              "https://cdn.segment.com/analytics.js/v1/" +
+              key +
+              "/analytics.min.js";
+            var n = document.getElementsByTagName("script")[0];
+            n.parentNode.insertBefore(t, n);
+            analytics._loadOptions = i;
+          };
+          analytics._writeKey = "DddI3bjjtXmcAbrdDaDpMwSz0Y5udQql";
+          analytics.SNIPPET_VERSION = "5.2.0";
+          analytics.load("DddI3bjjtXmcAbrdDaDpMwSz0Y5udQql");
+
+          analytics.ready(function () {
+            var segmentId = analytics.user().anonymousId();
+            if (segmentId) {
+              setMarketingCookie(segmentId);
+            } else if (!marketingId && !hasSetCookie) {
+              setMarketingCookie("DEBUG_C");
+            }
+          });
+
+          initialized = true;
+        }
+      }
+    }
+
+    // Expose for manual calls
+    window.initSegment = initSegment;
+
+    // Auto-initialize
+    initSegment();
+  })();
+</script></head><body><div class="page-wrapper"><div class="styles__global-embed-code"><div class="w-embed"><style>
+  /*Highlight https protocol links*/
+  html.wf-design-mode a[href^="http://"] {
+    outline: 2px solid red;
+  }
+  /*Highlight empty URLs*/
+  html.wf-design-mode a[href="#"] {
+    outline: 2px solid orange;
+  }
+</style></div><div class="w-embed"><!-- Phosphor regular icons -->
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+<!-- Phosphor fill icons -->
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" />
+<!-- Phosphor bold icons -->
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" />
+
+<!-- Global custom CSS -->
+<style>
+
+  :root {
+    interpolate-size: allow-keywords;
+  }
+  /* Apply font smoothing */
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+  }
+
+  /* Text Selection Color */
+  ::selection {
+    color: var(--colors--foreground-color);
+    background: var(--_color---blueberry--600);
+    text-decoration-style: wavy;
+    font-weight: 600;
+  }
+  ::-moz-selection {
+    background: var(--colors--foreground-color);
+    color: var(--_color---blueberry--600);
+  }
+
+  /* Clickable elements */
+  .clickable_wrap a[href="#"] {
+    display: none;
+  }
+  .clickable_wrap a[href="#"] ~ button {
+    display: block;
+  }
+
+  .wf-design-mode .clickable_wrap {
+    z-index: -1;
+  }
+
+
+  .w-richtext > *:first-child,
+  .w-richtext > *:first-child *:first-child {
+    margin-top: 0;
+  }
+
+  .w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
+    margin-bottom: 0;
+  }
+  .rich-text h1, .rich-text h2, .rich-text h3, .rich-text h4 {
+    text-wrap: balance;
+  }
+
+  /* Row/col gap modifiers */
+  .row.row-gap-0 .col {
+    margin: 0;
+    padding: 0;
+  }
+
+  .row.row-gap-xl {
+    --_responsive---gap--row-gap: calc(var(--_responsive---gap--gap-xl) / 2 * -1);
+    --_responsive---gap--col-gap: calc(var(--_responsive---gap--gap-xl) / 2);
+  }
+
+  .row.row-gap-lg {
+    --_responsive---gap--row-gap: calc(var(--_responsive---gap--gap-lg) / 2 * -1);
+    --_responsive---gap--col-gap: calc(var(--_responsive---gap--gap-lg) / 2);
+  }
+
+  .row.row-gap-sm {
+    --_responsive---gap--row-gap: calc(var(--_responsive---gap--gap-sm) / 2 * -1);
+    --_responsive---gap--col-gap: calc(var(--_responsive---gap--gap-sm) / 2);
+  }
+
+  /* Line clamp modifiers */
+  .u-text-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;   /* number of lines to show */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .u-text-clamp-2 {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .u-text-clamp-3 {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  /* Build mode modifiers */
+  .slot.cc-column .btn {
+    align-self: flex-start;
+  }
+  .slot.cc-column .accordion-item {
+    margin: 0;
+  }
+  .card:has(.u-link-cover:focus-visible) {
+    outline: 2px solid var(--colors--primary-accent);
+    outline-offset: 2px;
+  }
+  html.wf-design-mode .card:has( .slot.cc-card) .u-link-cover {
+    pointer-events: none;
+  }
+
+  /* Modal mods */
+  body:has(dialog[open]) {
+    overflow: hidden !important;
+  }
+  dialog.modal[open] {
+    animation: fadein 400ms ease-out forwards;
+  }
+  dialog.modal::backdrop {
+    background: color-mix(in srgb, var(--_color---neutral--black) 80%, transparent);
+  }
+
+  @keyframes fadein{
+    0%{
+      opacity:0;
+    }
+    100%{
+      opacity:1;
+    }
+  }
+  dialog::-webkit-scrollbar {
+    width: 10px;
+  }            
+  dialog::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: transparent;
+  }            
+  dialog::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: 2px solid var(--colors--background);
+    background: var(--colors--text);
+  }
+  dialog::-webkit-scrollbar-thumb:window-inactive {
+    background: var(--colors--text);
+  }
+
+  /* Accordion detail transform */
+
+  .accordion-item[open] .accordion-icon_right {
+    transform: rotateZ(45deg);
+  }
+
+  .accordion-item[open] .accordion-content_spacer {
+    height: auto;
+  }
+
+  /* eyebrow-wrapper margin trim */
+
+  .eyebrow-wrapper:last-child {
+    margin-bottom: 0 !important; 
+  }
+
+  /* HL empty links */
+
+  html.wf-design-mode a[href='#'] {
+    /* outline: 3px solid orange !important; */
+  }
+
+  /* Remove top padding from first .section inside .columned-body_main / Remove bottom padding from last .section inside .columned-body_main */
+
+  .columned-body_main > .section:first-of-type {
+    padding-top: 0px;
+  }
+
+  .columned-body_main > .section:last-of-type {
+    padding-bottom: 0px;
+  }
+
+  /* Remove bottom margin of last header or eyebrow inside .card */
+
+  .card :is(.eyebrow, p, h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4):last-child {
+    margin-bottom: 0;
+  }
+
+  .card.is--hover-true:hover .card-title {
+    background-color: var(--_color---neutral--white);
+    color: var(--_color---neutral--black);
+  }
+
+  /* Author thumbnail hover */
+
+  .author-wrapper:hover .author-tooltip {
+    opacity: 1;
+    transform: translateY(10%);
+  }
+
+  .author-wrapper:first-child {
+    margin-left: 0;
+  }
+
+</style></div><div class="w-embed"><style>
+  /* ================================
+  Mobile Menu Modifications
+  ===================================*/
+/*
+  .nav-menu.cc-mobile .nav {
+    width: 100%;
+  }
+
+  .nav-menu.cc-mobile .nav ul {
+    flex-direction: column;
+  }
+
+  [data-nav-actions-mobile], [data-search-mobile] {
+    display: none;
+  }
+
+  .page-wrapper:has(.nav-menu.is-active) .nav-menu-overlay {
+    display: block;
+    pointer-events: auto;
+  }
+
+  .page-wrapper:has(.nav-menu.is-active) .page-main {
+    pointer-events: none;
+  }
+*/
+  /* ================================
+  Container Query: Tablet/Desktop Breakpoint
+  (Less than 80rem / 1280px)
+  ===================================*/
+
+
+  @container page-wrapper (width < 80rem) {
+    .columned-body {
+      display: block;
+    } 
+
+
+   [data-nav-button] {
+      display: block;
+    } 
+  
+  /*
+    [data-main-nav] {
+      position: fixed;
+      top: 0;         
+      z-index: 999;     
+    } 
+    */
+        
+    
+     .sticky-sidebar {
+      position: sticky; 
+      top: 5rem;          /* distance from the top when it sticks */
+      z-index: 1;     /* stays above normal content */
+    }
+    
+/*
+    .columned-body_main {
+      border: none; 
+      border-radius: 0; 
+    }
+*/
+    .columned-body_aside {
+      display: none;
+    }
+  }
+  
+ @media screen and (max-width: 991px) {
+      .sticky-sidebar {
+      position: relative; 
+      top: 0rem;          /* distance from the top when it sticks */
+      z-index: 1;     /* stays above normal content */
+    }
+ 
+}
+
+/*
+  @container page-wrapper (width < 46rem) {
+    [data-search-desktop] {
+      display: none;
+    }
+    [data-search-mobile] {
+      display: flex;
+    }
+  }
+  */
+/*
+  @container page-wrapper (width < 24.5rem) {
+    [data-nav-actions-desktop] {
+      display: none;
+    }
+    [data-nav-actions-mobile] {
+      display: flex;
+    }
+  }
+  */
+ /* Nav icon colors */
+  :root {
+    --nav-current-icon-color: ; /* empty on purpose */
+  }
+
+  [data-type="nav-item"].w--current [data-role="icon"] {
+    color: var(--nav-current-icon-color);
+  }
+  
+
+</style></div><div class="w-embed w-script"><script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll('[data-swiper]').forEach(function (swiperEl) {
+
+    // Add required Swiper structure classes dynamically
+    const wrapper = swiperEl.querySelector('[data-swiper-wrapper]');
+    const slides = wrapper.querySelectorAll('[data-swiper-slide]');
+    swiperEl.classList.add('swiper');
+    wrapper.classList.add('swiper-wrapper');
+    slides.forEach(slide => slide.classList.add('swiper-slide'));
+
+    // Find navigation buttons in the same container
+    const parent = swiperEl.closest('[data-swiper-container]') || swiperEl.parentElement;
+    const nextBtn = parent.querySelector('[data-swiper-next]');
+    const prevBtn = parent.querySelector('[data-swiper-prev]');
+
+    // Initialize Swiper
+    const swiper = new Swiper(swiperEl, {
+      slidesPerView: 'auto',
+      spaceBetween: 16,
+      centeredSlides: false,
+      slidesPerGroup: 1,
+      speed: 600,
+      grabCursor: true,
+
+      mousewheel: {
+        forceToAxis: true,
+        releaseOnEdges: true,
+        sensitivity: 3,
+        thresholdDelta: 10,
+      },
+
+      keyboard: {
+        enabled: false,
+        onlyInViewport: true,
+      },
+
+      navigation: {
+        nextEl: nextBtn,
+        prevEl: prevBtn,
+      },
+    });
+
+    // Enable keyboard navigation only on hover
+    swiperEl.addEventListener("mouseenter", () => swiper.keyboard.enable());
+    swiperEl.addEventListener("mouseleave", () => swiper.keyboard.disable());
+  });
+});
+</script></div><div class="w-embed"><style>
+  [data-lesson-completed='true'] .is--completed {
+    display: flex;
+  }
+  
+  [data-lesson-completed='true'] .is--index {
+    display: none;
+  }
+</style></div></div><div data-main-nav="" class="nav cc-top"><a href="#main" class="nav-skip-link w-inline-block"><div>Skip to main</div></a><div class="nav_banner"><div class="nav_banner-container"><div class="nav_banner-img"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6949563e279ed7bd1b1bf126_banner%2520left-p-500.png 500w, https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6949563e279ed7bd1b1bf126_banner%20left.png 531w" alt="" src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6949563e279ed7bd1b1bf126_banner%20left.png" loading="lazy" class="u-img-cover"/></div><div class="nav_banner-img cc-cemter"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6949563e279ed7bd1b1bf11f_banner%2520center-p-500.png 500w, https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6949563e279ed7bd1b1bf11f_banner%2520center-p-800.png 800w, https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6949563e279ed7bd1b1bf11f_banner%20center.png 863w" alt="" src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6949563e279ed7bd1b1bf11f_banner%20center.png" loading="lazy" class="u-img-cover"/></div><div class="nav_banner-img"><img sizes="100vw" srcset="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6949563e279ed7bd1b1bf123_banner%2520right-p-500.png 500w, https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6949563e279ed7bd1b1bf123_banner%20right.png 531w" alt="" src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6949563e279ed7bd1b1bf123_banner%20right.png" loading="lazy" class="u-img-cover"/></div></div><a href="https://clayback.clay.com/" target="_blank" class="u-link-cover w-inline-block"><div class="u-sr-only">Review your year with Clay on Clayback.clay.com</div></a></div><div class="nav-top-container"><div class="logo-wrapper"><a data-wf--logo--variant="small" href="/" class="logo u-aspect-custom w-variant-e0f459f1-4625-a6f2-6ecf-0a9162a537b0 u-z-index-2 w-inline-block"><div class="u-sr-only">University home page</div><img src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/687eb46ac25e61a584b5ed01_university-logo.webp" loading="lazy" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/687eb46ac25e61a584b5ed01_university-logo-p-500.webp 500w, https://cdn.prod.website-files.com/687563213dfbc91a782122b1/687eb46ac25e61a584b5ed01_university-logo.webp 800w" alt="Clay University logo" class="u-img-cover"/></a></div><div class="nav-right"><div class="nav-search u-md-d-none"><button data-wf--search-bar--variant="base" data-inkeep-button="" u-sm-hide="" data-menu-close="" class="searchbar u-sm-hide"><div class="search_label u-d-inline-flex"><div>Search University or ask AI. Learn your way.</div><div><div class="u-d-inline-flex"><div class="search_sublabel">⌘</div><div class="search_sublabel">K</div></div></div></div><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><span class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab ph-bold ph-magnifying-glass">​</span></div></button></div><div logged-in="true" data-nav-actions-desktop="" class="nav-actions is--clay_account hide"><a data-wf--button--variant="regular" href="https://app.clay.com" target="_blank" class="btn w-variant-a533a540-9dbe-f3f4-7226-973b22c58479 black w-inline-block u-sm-d-none"><div class="btn_content u-bg-black"><div class="btn-text">Open workspace</div></div><div class="btn-shade"></div></a><div data-hover="false" data-delay="600" data-nav-button="" class="drop-menu w-dropdown"><div class="dropdown-toggle w-dropdown-toggle"><div class="drop-menu_icon-wrap"><div data-is-ix2-target="1" class="drop-menu_icon" data-w-id="0688b04e-97e1-495d-69ff-5ac2a8b4d30c" data-animation-type="lottie" data-src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6907c2dd2d9d5706862953df_menu-nav-09-000000-easey.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="2.5" data-duration="0" data-ix2-initial-state="0"></div></div></div><nav class="drop-menu_base w-dropdown-list"><div id="" class="drop-menu_content"><div fs-scrolldisable-element="when-visible" class="lock-scrolling"></div><div class="drop-menu_body"><div class="drop-menu_list"><div data-nav-menu="" data-wf--primary-nav-group--variant="base" class="nav"><ul role="list" class="nav-list w-list-unstyled"><li><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-tag-chevron">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Overview</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="courses" data-wf--nav-link--variant="base" href="/courses" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-monitor-play">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Courses</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="docs" data-wf--nav-link--variant="base" href="/docs" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-file-text">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Docs</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="claybooks" data-wf--nav-link--variant="base" href="/use-case-templates" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-book-open-text">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Use case templates</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="certifications" data-wf--nav-link--variant="base" href="/certifications" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-seal-check">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Certifications</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/cohorts" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-student">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Cohorts</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="https://www.clay.com/" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-arrow-up-right">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Clay.com</div></div><div class="nav-link_shade"></div></a></li></ul><div class="nav-list-hover u-d-none"></div></div><div class="nav-menu_action-btn"><div>Sign up to Clay</div><div class="menu-second_icon cc-in-button"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div><div class="menu-second"><div class="menu-second_list"><div class="scroll-indicator"></div><div fs-scrolldisable-element="preserve" class="menu-second_items"><div data-nav-menu="" class="nav"><div class="nav-menu_block"><div class="nav-list-item cc-eyebrow">Courses</div><div class="w-dyn-list"><div role="list" class="nav-list w-dyn-items"><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/clay-101" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-tag-chevron ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Clay 101: GTM Automation</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/limitless-research" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-infinity ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Limitless Research</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/ai" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-tag-chevron">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">AI-Powered GTM Automation</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/automated-outbound" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-plugs-connected ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Automated Outbound</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/signals-abm" aria-current="page" class="nav-list-item w-inline-block w--current"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-infinity ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Signals &amp; ABM</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/crm-enrichment" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-user-circle-gear ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">CRM Enrichment</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/automated-inbound" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-magnet ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Automated Inbound</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/how-to-use-hg-insights-in-clay" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-floppy-disk ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">How to Use HG Insights in Clay</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/tam-sourcing" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-brain ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">TAM Sourcing</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/clay-in-chatgpt" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-open-ai-logo">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Clay in ChatGPT</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/clay-audiences" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-users-three">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Audiences</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/functions" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-recycle">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Functions</div></div><div class="nav-link_shade"></div></a></div></div></div></div><div class="nav-list-hover u-d-none"></div></div></div></div><div class="menu-second_trigger"><div><div>Course index</div></div><div class="menu-second_icon"><div class="menu-second_arrow"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><span class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab ph-bold ph-caret-down">​</span></div></div></div></div></div></div></div></nav></div></div><div logged-in="false" data-nav-actions-desktop="" class="nav-actions is--not_clay_account"><div class="nav-text-btn u-sm-d-none"><a data-wf--button--variant="regular" href="https://app.clay.com/" class="btn w-variant-a533a540-9dbe-f3f4-7226-973b22c58479 black w-inline-block"><div class="btn_content u-bg-black"><div class="btn-text">Log in</div></div><div class="btn-shade"></div></a></div><a data-wf--button--variant="regular" href="https://app.clay.com/signup?source=nav" class="btn w-variant-a533a540-9dbe-f3f4-7226-973b22c58479 black w-inline-block u-sm-d-none"><div class="btn_content u-bg-black"><div class="btn-text">Sign up</div></div><div class="btn-shade"></div></a><div data-hover="false" data-delay="600" data-nav-button="" class="drop-menu w-dropdown"><div class="dropdown-toggle w-dropdown-toggle"><div class="drop-menu_icon-wrap"><div data-is-ix2-target="1" class="drop-menu_icon" data-w-id="c5e1a086-2a47-c5df-84eb-3ba4cc16af70" data-animation-type="lottie" data-src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/6907c2dd2d9d5706862953df_menu-nav-09-000000-easey.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="2.5" data-duration="0" data-ix2-initial-state="0"></div></div></div><nav class="drop-menu_base w-dropdown-list"><div id="" class="drop-menu_content"><div fs-scrolldisable-element="when-visible" class="lock-scrolling"></div><div class="drop-menu_body"><div class="drop-menu_list"><div data-nav-menu="" data-wf--primary-nav-group--variant="base" class="nav"><ul role="list" class="nav-list w-list-unstyled"><li><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-tag-chevron">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Overview</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="courses" data-wf--nav-link--variant="base" href="/courses" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-monitor-play">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Courses</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="docs" data-wf--nav-link--variant="base" href="/docs" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-file-text">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Docs</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="claybooks" data-wf--nav-link--variant="base" href="/use-case-templates" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-book-open-text">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Use case templates</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="certifications" data-wf--nav-link--variant="base" href="/certifications" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-seal-check">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Certifications</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/cohorts" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-student">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Cohorts</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="https://www.clay.com/" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-arrow-up-right">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Clay.com</div></div><div class="nav-link_shade"></div></a></li></ul><div class="nav-list-hover u-d-none"></div></div><div class="nav-menu_action-btn"><div>Sign up to Clay</div><div class="menu-second_icon cc-in-button"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div><div class="menu-second"><div class="menu-second_list"><div class="scroll-indicator"></div><div fs-scrolldisable-element="preserve" class="menu-second_items"><div data-nav-menu="" class="nav"><div class="nav-menu_block"><div class="nav-list-item cc-eyebrow">Courses</div><div class="w-dyn-list"><div role="list" class="nav-list w-dyn-items"><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/clay-101" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-tag-chevron ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Clay 101: GTM Automation</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/limitless-research" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-infinity ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Limitless Research</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/ai" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-tag-chevron">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">AI-Powered GTM Automation</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/automated-outbound" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-plugs-connected ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Automated Outbound</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/signals-abm" aria-current="page" class="nav-list-item w-inline-block w--current"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-infinity ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Signals &amp; ABM</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/crm-enrichment" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-user-circle-gear ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">CRM Enrichment</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/automated-inbound" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-magnet ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Automated Inbound</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/how-to-use-hg-insights-in-clay" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-floppy-disk ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">How to Use HG Insights in Clay</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/tam-sourcing" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-brain ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">TAM Sourcing</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/clay-in-chatgpt" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-open-ai-logo">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Clay in ChatGPT</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/clay-audiences" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-users-three">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Audiences</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/functions" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-recycle">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Functions</div></div><div class="nav-link_shade"></div></a></div></div></div></div><div class="nav-list-hover u-d-none"></div></div></div></div><div class="menu-second_trigger"><div><div>Course index</div></div><div class="menu-second_icon"><div class="menu-second_arrow"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><span class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab ph-bold ph-caret-down">​</span></div></div></div></div></div></div></div></nav></div></div></div></div></div><main id="main" class="page-main"><div class="columned-body"><aside id="" class="columned-body_aside"><div class="page-sidebar"><nav class="side-nav"><div class="nav-menu u-w-100"><div data-nav-menu="" data-wf--primary-nav-group--variant="base" class="nav"><ul role="list" class="nav-list w-list-unstyled"><li><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-tag-chevron">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Overview</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="courses" data-wf--nav-link--variant="base" href="/courses" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-monitor-play">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Courses</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="docs" data-wf--nav-link--variant="base" href="/docs" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-file-text">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Docs</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="claybooks" data-wf--nav-link--variant="base" href="/use-case-templates" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-book-open-text">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Use case templates</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="true" data-dropdown="certifications" data-wf--nav-link--variant="base" href="/certifications" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-seal-check">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Certifications</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/cohorts" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-student">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Cohorts</div></div><div class="nav-link_shade"></div></a></li><li><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="https://www.clay.com/" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-arrow-up-right">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Clay.com</div></div><div class="nav-link_shade"></div></a></li></ul><div class="nav-list-hover u-d-none"></div></div></div><div class="nav-container"><div class="nav-menu u-w-100"><div data-nav-menu="" class="nav"><div class="nav-menu_block"><div class="nav-list-item cc-eyebrow">Courses</div><div class="w-dyn-list"><div role="list" class="nav-list w-dyn-items"><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/clay-101" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-tag-chevron ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Clay 101: GTM Automation</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/limitless-research" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-infinity ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Limitless Research</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/ai" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-tag-chevron">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">AI-Powered GTM Automation</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/automated-outbound" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-plugs-connected ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Automated Outbound</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/signals-abm" aria-current="page" class="nav-list-item w-inline-block w--current"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-infinity ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Signals &amp; ABM</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/crm-enrichment" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-user-circle-gear ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">CRM Enrichment</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/automated-inbound" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-magnet ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Automated Inbound</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/how-to-use-hg-insights-in-clay" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-floppy-disk ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">How to Use HG Insights in Clay</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/tam-sourcing" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-brain ph-bold">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">TAM Sourcing</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/clay-in-chatgpt" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-open-ai-logo">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Clay in ChatGPT</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/clay-audiences" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-users-three">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Audiences</div></div><div class="nav-link_shade"></div></a></div><div role="listitem" class="w-dyn-item"><a data-type="nav-item" data-dropdown-trigger="false" data-dropdown="false" data-wf--nav-link--variant="base" href="/courses/functions" class="nav-list-item w-inline-block"><div data-role="icon" class="nav-link_icon"><div data-wf--icon-swatch--variant="nav-icon" class="icon-base w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63"><span class="icon-pull w-variant-37c7118b-dba2-09a4-eefa-59cf93b8ab63 ph-bold ph-recycle">​</span></div></div><div class="nav-link_text"><div class="u-z-index-2">Functions</div></div><div class="nav-link_shade"></div></a></div></div></div></div><div class="nav-list-hover u-d-none"></div></div></div></div></nav></div></aside><main data-main="" data-menu-close="" class="columned-body_main"><h1 class="u-sr-only">Learn and master Clay with Clay university</h1><section class="section u-pb-0"><h2 class="u-sr-only">Featured in Clay University</h2><div style="background-color:#9f3e15" class="box-hero cc-blueberry"><div class="hero-grid"><div id="w-node-_5696db74-ad5f-a9f6-9e97-ce9f11fcdee0-5b576971" class="hero-grid_top"><div class="grid-hero_crumbs"><a data-wf--tag--variant="medium" href="/courses" class="tag w-variant-0ae556b3-8fd9-e63e-54e6-b8489e62cbe2 w-inline-block"><div class="tag_inside"><div class="btn-text">All courses</div></div><div class="btn-shade"></div></a><div class="grid-hero_crumbs u-md-d-none"><div>/</div><div>Signals &amp; ABM</div></div></div></div><div id="w-node-_5696db74-ad5f-a9f6-9e97-ce9f11fcdee1-5b576971" class="hero-grid_title"><div class="hero-grid_title-large"><h1 class="hero-title_large u-mb-0">Signals &amp; ABM</h1></div></div><div class="hero-grid_bl cc-course"><div class="hero-grid_img"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d091a958587e60fae3939_Signals.jpg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d091a958587e60fae3939_Signals-p-500.jpg 500w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d091a958587e60fae3939_Signals-p-800.jpg 800w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d091a958587e60fae3939_Signals-p-1080.jpg 1080w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d091a958587e60fae3939_Signals.jpg 1500w" class="u-img-cover"/></div></div></div><div id="w-node-_83768a64-6a4b-0d28-992b-fd04f940c419-5b576971" class="course-hero_br"><div class="course-hero_intro"><div class="course-hero_intro-stack"><p data-wf--paragraph--variant="large" class="paragraph w-variant-b3f9fc18-42dc-f923-a848-97c1dd7d4e3d u-mb-0">Master Signal Orchestration, Account-Based Marketing, and Intelligence-Driven Advertising to Build proactive GTM engines.</p><a data-wf--button--variant="medium" href="/lessons/intro-to-signals-in-clay-signals-abm" class="btn black w-inline-block"><div class="btn_content u-bg-black"><div class="btn-text">Start course</div><div class="icon_clip cc-btn"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div><div class="btn-shade"></div></a></div><div class="label-item"><div>This course includes</div><div class="label-item_icon"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><span class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab ph-bold ph-arrow-bend-right-down">​</span></div></div></div></div><div class="course-hero_bullets"><div class="bullet"><div class="rich-checkmarks w-richtext"><ul role="list"><li>Understand signals in Clay</li><li>Set up different signal types</li><li>Build custom signal workflows</li><li>Execute advanced signal stacking strategies</li><li>Run end-to-end ABM campaigns in Clay</li><li>Launch ad intelligence campaigns</li></ul></div></div></div></div></div></div></section><div class="page-body u-pt-0"><section class="section"><div data-swiper-parent="true" class="container cc-narrow"><div class="side-body cc-reversed"><div class="side-body_content"><div class="side-body_block"><div class="label-bar"><div>About this course</div></div><div class="course-lessons"><div class="side-body_padding"><div class="course_about"><div class="w-richtext"><p>Learn how to build sophisticated signal orchestration systems that detect and reveal genuine buying intent proactively, execute precision account-based marketing campaigns that penetrate high-value accounts, and transform advertising from anonymous impressions into qualified pipeline. You&#x27;ll learn to combine multiple signals into scoring systems, progress accounts through defined ABM stages with automated workflows, and identify exactly who engages with your campaigns—creating a unified intelligence layer that connects every touchpoint from first awareness to closed deal.</p></div></div></div></div></div><div class="side-body_block"><div class="label-bar"><div>In this course</div></div><div class="course-lessons"><div class="w-dyn-list"><div role="list" class="course-lessons_list w-dyn-items"><div data-lesson-completed="false" data-lesson-item="intro-to-signals-in-clay-signals-abm" role="listitem" class="w-dyn-item"><div class="lesson-cat_label w-condition-invisible"><div>Intro to Signals in Clay</div></div><div class="lesson-item"><div class="lesson-item_left"><div data-lesson="icon" class="lesson-sidebar_number is--completed"><div data-source-count="">✔</div></div><div data-wf--icon-swatch--variant="md" class="icon-base"><svg viewBox="0 0 24 24" fill="black" class="icon-pull w-variant-d2f34f29-ce0f-2421-2538-ee348b2bc15e"><path d="M12.0005 2.4209C17.2905 2.42116 21.5795 6.70996 21.5796 12C21.5796 17.2901 17.2906 21.5788 12.0005 21.5791C6.71023 21.579 2.42041 17.2903 2.42041 12C2.42053 6.70983 6.7103 2.42095 12.0005 2.4209ZM12.0005 3.68457C7.40793 3.68463 3.68518 7.40745 3.68506 12C3.68506 16.5926 7.40785 20.3154 12.0005 20.3154C16.5929 20.3152 20.3159 16.5925 20.3159 12C20.3158 7.40758 16.5929 3.68483 12.0005 3.68457ZM10.2241 9.41309C10.2241 9.14161 10.5214 8.97567 10.7524 9.11816L14.9478 11.7051C15.167 11.8407 15.167 12.1594 14.9478 12.2949L10.7524 14.8818C10.5214 15.0243 10.2242 14.8583 10.2241 14.5869V9.41309Z" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div><div>Intro to Signals in Clay</div></div><div class="dynamic-text"><div>7 min</div></div><div class="clickable_wrap"><a href="/lessons/intro-to-signals-in-clay-signals-abm" class="clickable_link w-inline-block"><span class="u-sr-only">View lesson</span></a><button class="clickable_button"><span class="u-sr-only">View lesson</span></button></div></div></div><div data-lesson-completed="false" data-lesson-item="types-of-signals-in-clay-signals-abm" role="listitem" class="w-dyn-item"><div class="lesson-cat_label w-condition-invisible"><div>Types of Signals in Clay</div></div><div class="lesson-item"><div class="lesson-item_left"><div data-lesson="icon" class="lesson-sidebar_number is--completed"><div data-source-count="">✔</div></div><div data-wf--icon-swatch--variant="md" class="icon-base"><svg viewBox="0 0 24 24" fill="black" class="icon-pull w-variant-d2f34f29-ce0f-2421-2538-ee348b2bc15e"><path d="M12.0005 2.4209C17.2905 2.42116 21.5795 6.70996 21.5796 12C21.5796 17.2901 17.2906 21.5788 12.0005 21.5791C6.71023 21.579 2.42041 17.2903 2.42041 12C2.42053 6.70983 6.7103 2.42095 12.0005 2.4209ZM12.0005 3.68457C7.40793 3.68463 3.68518 7.40745 3.68506 12C3.68506 16.5926 7.40785 20.3154 12.0005 20.3154C16.5929 20.3152 20.3159 16.5925 20.3159 12C20.3158 7.40758 16.5929 3.68483 12.0005 3.68457ZM10.2241 9.41309C10.2241 9.14161 10.5214 8.97567 10.7524 9.11816L14.9478 11.7051C15.167 11.8407 15.167 12.1594 14.9478 12.2949L10.7524 14.8818C10.5214 15.0243 10.2242 14.8583 10.2241 14.5869V9.41309Z" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div><div>Types of Signals in Clay</div></div><div class="dynamic-text"><div>5 min</div></div><div class="clickable_wrap"><a href="/lessons/types-of-signals-in-clay-signals-abm" class="clickable_link w-inline-block"><span class="u-sr-only">View lesson</span></a><button class="clickable_button"><span class="u-sr-only">View lesson</span></button></div></div></div><div data-lesson-completed="false" data-lesson-item="setting-up-signals-in-clay" role="listitem" class="w-dyn-item"><div class="lesson-cat_label w-condition-invisible"><div>Setting Up Signals in Clay</div></div><div class="lesson-item"><div class="lesson-item_left"><div data-lesson="icon" class="lesson-sidebar_number is--completed"><div data-source-count="">✔</div></div><div data-wf--icon-swatch--variant="md" class="icon-base"><svg viewBox="0 0 24 24" fill="black" class="icon-pull w-variant-d2f34f29-ce0f-2421-2538-ee348b2bc15e"><path d="M12.0005 2.4209C17.2905 2.42116 21.5795 6.70996 21.5796 12C21.5796 17.2901 17.2906 21.5788 12.0005 21.5791C6.71023 21.579 2.42041 17.2903 2.42041 12C2.42053 6.70983 6.7103 2.42095 12.0005 2.4209ZM12.0005 3.68457C7.40793 3.68463 3.68518 7.40745 3.68506 12C3.68506 16.5926 7.40785 20.3154 12.0005 20.3154C16.5929 20.3152 20.3159 16.5925 20.3159 12C20.3158 7.40758 16.5929 3.68483 12.0005 3.68457ZM10.2241 9.41309C10.2241 9.14161 10.5214 8.97567 10.7524 9.11816L14.9478 11.7051C15.167 11.8407 15.167 12.1594 14.9478 12.2949L10.7524 14.8818C10.5214 15.0243 10.2242 14.8583 10.2241 14.5869V9.41309Z" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div><div>Setting Up Signals in Clay</div></div><div class="dynamic-text"><div>5 min</div></div><div class="clickable_wrap"><a href="/lessons/setting-up-signals-in-clay" class="clickable_link w-inline-block"><span class="u-sr-only">View lesson</span></a><button class="clickable_button"><span class="u-sr-only">View lesson</span></button></div></div></div><div data-lesson-completed="false" data-lesson-item="building-custom-signals-in-clay" role="listitem" class="w-dyn-item"><div class="lesson-cat_label w-condition-invisible"><div>Building Custom Signals in Clay</div></div><div class="lesson-item"><div class="lesson-item_left"><div data-lesson="icon" class="lesson-sidebar_number is--completed"><div data-source-count="">✔</div></div><div data-wf--icon-swatch--variant="md" class="icon-base"><svg viewBox="0 0 24 24" fill="black" class="icon-pull w-variant-d2f34f29-ce0f-2421-2538-ee348b2bc15e"><path d="M12.0005 2.4209C17.2905 2.42116 21.5795 6.70996 21.5796 12C21.5796 17.2901 17.2906 21.5788 12.0005 21.5791C6.71023 21.579 2.42041 17.2903 2.42041 12C2.42053 6.70983 6.7103 2.42095 12.0005 2.4209ZM12.0005 3.68457C7.40793 3.68463 3.68518 7.40745 3.68506 12C3.68506 16.5926 7.40785 20.3154 12.0005 20.3154C16.5929 20.3152 20.3159 16.5925 20.3159 12C20.3158 7.40758 16.5929 3.68483 12.0005 3.68457ZM10.2241 9.41309C10.2241 9.14161 10.5214 8.97567 10.7524 9.11816L14.9478 11.7051C15.167 11.8407 15.167 12.1594 14.9478 12.2949L10.7524 14.8818C10.5214 15.0243 10.2242 14.8583 10.2241 14.5869V9.41309Z" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div><div>Building Custom Signals in Clay</div></div><div class="dynamic-text"><div>6 min</div></div><div class="clickable_wrap"><a href="/lessons/building-custom-signals-in-clay" class="clickable_link w-inline-block"><span class="u-sr-only">View lesson</span></a><button class="clickable_button"><span class="u-sr-only">View lesson</span></button></div></div></div><div data-lesson-completed="false" data-lesson-item="advanced-strategies-with-signals-signals-abm" role="listitem" class="w-dyn-item"><div class="lesson-cat_label w-condition-invisible"><div>Advanced Strategies with Signals</div></div><div class="lesson-item"><div class="lesson-item_left"><div data-lesson="icon" class="lesson-sidebar_number is--completed"><div data-source-count="">✔</div></div><div data-wf--icon-swatch--variant="md" class="icon-base"><svg viewBox="0 0 24 24" fill="black" class="icon-pull w-variant-d2f34f29-ce0f-2421-2538-ee348b2bc15e"><path d="M12.0005 2.4209C17.2905 2.42116 21.5795 6.70996 21.5796 12C21.5796 17.2901 17.2906 21.5788 12.0005 21.5791C6.71023 21.579 2.42041 17.2903 2.42041 12C2.42053 6.70983 6.7103 2.42095 12.0005 2.4209ZM12.0005 3.68457C7.40793 3.68463 3.68518 7.40745 3.68506 12C3.68506 16.5926 7.40785 20.3154 12.0005 20.3154C16.5929 20.3152 20.3159 16.5925 20.3159 12C20.3158 7.40758 16.5929 3.68483 12.0005 3.68457ZM10.2241 9.41309C10.2241 9.14161 10.5214 8.97567 10.7524 9.11816L14.9478 11.7051C15.167 11.8407 15.167 12.1594 14.9478 12.2949L10.7524 14.8818C10.5214 15.0243 10.2242 14.8583 10.2241 14.5869V9.41309Z" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div><div>Advanced Strategies with Signals</div></div><div class="dynamic-text"><div>4 min</div></div><div class="clickable_wrap"><a href="/lessons/advanced-strategies-with-signals-signals-abm" class="clickable_link w-inline-block"><span class="u-sr-only">View lesson</span></a><button class="clickable_button"><span class="u-sr-only">View lesson</span></button></div></div></div><div data-lesson-completed="false" data-lesson-item="claybm-abm-in-clay-signals-abm" role="listitem" class="w-dyn-item"><div class="lesson-cat_label w-condition-invisible"><div>ClayBM: ABM in Clay</div></div><div class="lesson-item"><div class="lesson-item_left"><div data-lesson="icon" class="lesson-sidebar_number is--completed"><div data-source-count="">✔</div></div><div data-wf--icon-swatch--variant="md" class="icon-base"><svg viewBox="0 0 24 24" fill="black" class="icon-pull w-variant-d2f34f29-ce0f-2421-2538-ee348b2bc15e"><path d="M12.0005 2.4209C17.2905 2.42116 21.5795 6.70996 21.5796 12C21.5796 17.2901 17.2906 21.5788 12.0005 21.5791C6.71023 21.579 2.42041 17.2903 2.42041 12C2.42053 6.70983 6.7103 2.42095 12.0005 2.4209ZM12.0005 3.68457C7.40793 3.68463 3.68518 7.40745 3.68506 12C3.68506 16.5926 7.40785 20.3154 12.0005 20.3154C16.5929 20.3152 20.3159 16.5925 20.3159 12C20.3158 7.40758 16.5929 3.68483 12.0005 3.68457ZM10.2241 9.41309C10.2241 9.14161 10.5214 8.97567 10.7524 9.11816L14.9478 11.7051C15.167 11.8407 15.167 12.1594 14.9478 12.2949L10.7524 14.8818C10.5214 15.0243 10.2242 14.8583 10.2241 14.5869V9.41309Z" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div><div>ClayBM: ABM in Clay</div></div><div class="dynamic-text"><div>6 min</div></div><div class="clickable_wrap"><a href="/lessons/claybm-abm-in-clay-signals-abm" class="clickable_link w-inline-block"><span class="u-sr-only">View lesson</span></a><button class="clickable_button"><span class="u-sr-only">View lesson</span></button></div></div></div><div data-lesson-completed="false" data-lesson-item="abm-and-ad-intelligence-in-clay" role="listitem" class="w-dyn-item"><div class="lesson-cat_label w-condition-invisible"><div>ABM and Ad Intelligence in Clay</div></div><div class="lesson-item"><div class="lesson-item_left"><div data-lesson="icon" class="lesson-sidebar_number is--completed"><div data-source-count="">✔</div></div><div data-wf--icon-swatch--variant="md" class="icon-base"><svg viewBox="0 0 24 24" fill="black" class="icon-pull w-variant-d2f34f29-ce0f-2421-2538-ee348b2bc15e"><path d="M12.0005 2.4209C17.2905 2.42116 21.5795 6.70996 21.5796 12C21.5796 17.2901 17.2906 21.5788 12.0005 21.5791C6.71023 21.579 2.42041 17.2903 2.42041 12C2.42053 6.70983 6.7103 2.42095 12.0005 2.4209ZM12.0005 3.68457C7.40793 3.68463 3.68518 7.40745 3.68506 12C3.68506 16.5926 7.40785 20.3154 12.0005 20.3154C16.5929 20.3152 20.3159 16.5925 20.3159 12C20.3158 7.40758 16.5929 3.68483 12.0005 3.68457ZM10.2241 9.41309C10.2241 9.14161 10.5214 8.97567 10.7524 9.11816L14.9478 11.7051C15.167 11.8407 15.167 12.1594 14.9478 12.2949L10.7524 14.8818C10.5214 15.0243 10.2242 14.8583 10.2241 14.5869V9.41309Z" stroke="currentColor" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div><div>ABM and Ad Intelligence in Clay</div></div><div class="dynamic-text"><div>6 min</div></div><div class="clickable_wrap"><a href="/lessons/abm-and-ad-intelligence-in-clay" class="clickable_link w-inline-block"><span class="u-sr-only">View lesson</span></a><button class="clickable_button"><span class="u-sr-only">View lesson</span></button></div></div></div></div></div></div></div></div><div class="sticky-sidebar"><div class="sticky-sidebar_item"><div class="label-bar"><div>Skills you’ll gain</div></div><div class="sticky-sidebar_content"><div class="sticky-sidebar_list"><div class="rich-bullets w-richtext"><ul role="list"><li>Detect and orchestrate buying signals in Clay</li><li>Monitor any data point with custom signals</li><li>Execute precision ABM campaigns</li><li>Create multi-signal scoring models</li><li>Run intelligence-driven advertising</li></ul><p>‍</p></div></div><a data-wf--button--variant="medium" href="/lessons/intro-to-signals-in-clay-signals-abm" class="btn black w-inline-block"><div class="btn_content u-bg-black"><div class="btn-text">Start course</div><div class="icon_clip cc-btn"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div><div class="btn-shade"></div></a></div></div></div></div><div data-swiper-container="" class="section_base cc-gap-md u-mt-lg"><div data-wf--heading-row--variant="base" class="heading-row"><div class="heading-row_intro"><h2 data-wf--heading--alignment="left-align" class="heading-component h3 u-mb-0">Explore other courses</h2></div><div><div data-swiper-nav="" class="swiper-nav"><button data-swiper-prev="" class="swiper-btn cc-left"><div class="icon_clip"><div class="icon_left-show"><div class="ph-icon_item cc-left"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></button><button data-swiper-next="" class="swiper-btn cc-right"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></button></div></div></div><div data-swiper="" class="slider w-dyn-list"><div data-swiper-wrapper="" role="list" class="slide-wrapper w-dyn-items"><div data-swiper-slide="" role="listitem" class="slide w-dyn-item"><div class="card cc-course"><div class="card-theme cc-oat"><div data-wf--course-card--variant="horizontal" class="course-card"><div data-wf--card-title--variant="base" class="card-title u-d-flex"><div class="card-header-left"><h3 data-wf--heading--alignment="left-align" class="heading-component">Clay 101: GTM Automation</h3><div data-wf--eyebrow--style="medium" class="eyebrow-wrapper w-variant-c23664ed-35e2-28f5-cea8-706d39e34328 u-opacity-75"><div aria-hidden="false" class="eyebrow">Beginner</div></div></div><div data-wf--icon-button--variant="large" class="icon-button w-variant-409ad742-f8f5-f2fa-9a2e-47da25a52517"><div class="icon_clip"><div class="icon_up-right-show"><div class="ph-icon_item cc-up-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="card-body w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card_img w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d099a8dd9af1233ce3766_Apple%201.jpg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Clay 101: GTM Automation" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d099a8dd9af1233ce3766_Apple%201-p-500.jpg 500w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d099a8dd9af1233ce3766_Apple%201.jpg 700w" class="u-img-cover"/></div></div><div class="card-body_content w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card-body_text u-text-clamp-3"><p data-wf--paragraph--variant="medium" class="paragraph w-variant-2fe59925-bb17-5367-d8b2-ce4e1cd2820e u-text-black-75">Learn all the fundamentals you need to navigate Clay seamlessly when getting started</p></div><div class="course-card_featured"><div class="course-card_lesson cc-top"><div><div>Intro to Clay 101: FETE &amp; Jigsaw</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/intro-to-clay-101-fete-jigsaw" class="clickable_link w-inline-block"><span class="u-sr-only">Intro to Clay 101: FETE &amp; Jigsaw</span></a><button class="clickable_button"><span class="u-sr-only">Intro to Clay 101: FETE &amp; Jigsaw</span></button></div></div><div class="course-card_lesson"><div><div>Your First GTM Use Case</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/your-first-gtm-use-case" class="clickable_link w-inline-block"><span class="u-sr-only">Your First GTM Use Case</span></a><button class="clickable_button"><span class="u-sr-only">Your First GTM Use Case</span></button></div></div><div class="course-card_lesson cc-bottom"><div><div>How to Experiment Inside of Clay</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/how-to-experiment-inside-of-clay" class="clickable_link w-inline-block"><span class="u-sr-only">How to Experiment Inside of Clay</span></a><button class="clickable_button"><span class="u-sr-only">How to Experiment Inside of Clay</span></button></div></div></div></div></div><div class="clickable_wrap"><a href="/courses/clay-101" class="clickable_link w-inline-block"><span class="u-sr-only">View course</span></a><button class="clickable_button"><span class="u-sr-only">View course</span></button></div></div></div></div></div><div data-swiper-slide="" role="listitem" class="slide w-dyn-item"><div class="card cc-course"><div class="card-theme cc-oat"><div data-wf--course-card--variant="horizontal" class="course-card"><div data-wf--card-title--variant="base" class="card-title u-d-flex"><div class="card-header-left"><h3 data-wf--heading--alignment="left-align" class="heading-component">Limitless Research</h3><div data-wf--eyebrow--style="medium" class="eyebrow-wrapper w-variant-c23664ed-35e2-28f5-cea8-706d39e34328 u-opacity-75"><div aria-hidden="false" class="eyebrow">Intermediate</div></div></div><div data-wf--icon-button--variant="large" class="icon-button w-variant-409ad742-f8f5-f2fa-9a2e-47da25a52517"><div class="icon_clip"><div class="icon_up-right-show"><div class="ph-icon_item cc-up-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="card-body w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card_img w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09728564ce73a3c51829_MagnifyingGlass.jpg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Limitless Research" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09728564ce73a3c51829_MagnifyingGlass-p-500.jpg 500w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09728564ce73a3c51829_MagnifyingGlass.jpg 700w" class="u-img-cover"/></div></div><div class="card-body_content w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card-body_text u-text-clamp-3"><p data-wf--paragraph--variant="medium" class="paragraph w-variant-2fe59925-bb17-5367-d8b2-ce4e1cd2820e u-text-black-75">Stop copy/pasting data into your CRM and learn how to harness the power of web scraping to turbocharge your revenue org</p></div><div class="course-card_featured"><div class="course-card_lesson cc-top"><div><div>Intro to Web Scraping</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/intro-to-web-scraping-limitless-research" class="clickable_link w-inline-block"><span class="u-sr-only">Intro to Web Scraping</span></a><button class="clickable_button"><span class="u-sr-only">Intro to Web Scraping</span></button></div></div><div class="course-card_lesson"><div><div>Prompt Engineering Crash Course</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/prompt-engineering-crash-course-limitless-research" class="clickable_link w-inline-block"><span class="u-sr-only">Prompt Engineering Crash Course</span></a><button class="clickable_button"><span class="u-sr-only">Prompt Engineering Crash Course</span></button></div></div><div class="course-card_lesson cc-bottom"><div><div>Claygent: AI Web Scraper</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/claygent-ai-web-scraper-automated-outbound" class="clickable_link w-inline-block"><span class="u-sr-only">Claygent: AI Web Scraper</span></a><button class="clickable_button"><span class="u-sr-only">Claygent: AI Web Scraper</span></button></div></div></div></div></div><div class="clickable_wrap"><a href="/courses/limitless-research" class="clickable_link w-inline-block"><span class="u-sr-only">View course</span></a><button class="clickable_button"><span class="u-sr-only">View course</span></button></div></div></div></div></div><div data-swiper-slide="" role="listitem" class="slide w-dyn-item"><div class="card cc-course"><div class="card-theme cc-oat"><div data-wf--course-card--variant="horizontal" class="course-card"><div data-wf--card-title--variant="base" class="card-title u-d-flex"><div class="card-header-left"><h3 data-wf--heading--alignment="left-align" class="heading-component">AI-Powered GTM Automation</h3><div data-wf--eyebrow--style="medium" class="eyebrow-wrapper w-variant-c23664ed-35e2-28f5-cea8-706d39e34328 u-opacity-75"><div aria-hidden="false" class="eyebrow">Intermediate</div></div></div><div data-wf--icon-button--variant="large" class="icon-button w-variant-409ad742-f8f5-f2fa-9a2e-47da25a52517"><div class="icon_clip"><div class="icon_up-right-show"><div class="ph-icon_item cc-up-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="card-body w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card_img w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09f21b2c0d621fe603d2_AI-GTM.jpg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="AI-Powered GTM Automation" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09f21b2c0d621fe603d2_AI-GTM-p-500.jpg 500w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09f21b2c0d621fe603d2_AI-GTM.jpg 700w" class="u-img-cover"/></div></div><div class="card-body_content w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card-body_text u-text-clamp-3"><p data-wf--paragraph--variant="medium" class="paragraph w-variant-2fe59925-bb17-5367-d8b2-ce4e1cd2820e u-text-black-75">Unlock GTM alpha with AI workflows that save time, reduce costs, and drive conversion</p></div><div class="course-card_featured"><div class="course-card_lesson cc-top"><div><div>How AI is Reshaping Go-to-Market Strategy</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/how-ai-is-reshaping-go-to-market-strategy" class="clickable_link w-inline-block"><span class="u-sr-only">How AI is Reshaping Go-to-Market Strategy</span></a><button class="clickable_button"><span class="u-sr-only">How AI is Reshaping Go-to-Market Strategy</span></button></div></div><div class="course-card_lesson"><div><div>GTM&#x27;s AI Toolbox: The FETC Framework</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/gtms-ai-toolbox-the-fetc-framework" class="clickable_link w-inline-block"><span class="u-sr-only">GTM&#x27;s AI Toolbox: The FETC Framework</span></a><button class="clickable_button"><span class="u-sr-only">GTM&#x27;s AI Toolbox: The FETC Framework</span></button></div></div><div class="course-card_lesson cc-bottom"><div><div>Best Practices To Maximize Your Credits</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/best-practices-to-maximize-your-credits" class="clickable_link w-inline-block"><span class="u-sr-only">Best Practices To Maximize Your Credits</span></a><button class="clickable_button"><span class="u-sr-only">Best Practices To Maximize Your Credits</span></button></div></div></div></div></div><div class="clickable_wrap"><a href="/courses/ai" class="clickable_link w-inline-block"><span class="u-sr-only">View course</span></a><button class="clickable_button"><span class="u-sr-only">View course</span></button></div></div></div></div></div><div data-swiper-slide="" role="listitem" class="slide w-dyn-item"><div class="card cc-course"><div class="card-theme cc-oat"><div data-wf--course-card--variant="horizontal" class="course-card"><div data-wf--card-title--variant="base" class="card-title u-d-flex"><div class="card-header-left"><h3 data-wf--heading--alignment="left-align" class="heading-component">Automated Outbound</h3><div data-wf--eyebrow--style="medium" class="eyebrow-wrapper w-variant-c23664ed-35e2-28f5-cea8-706d39e34328 u-opacity-75"><div aria-hidden="false" class="eyebrow">Beginner</div></div></div><div data-wf--icon-button--variant="large" class="icon-button w-variant-409ad742-f8f5-f2fa-9a2e-47da25a52517"><div class="icon_clip"><div class="icon_up-right-show"><div class="ph-icon_item cc-up-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="card-body w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card_img w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09a99d2a74c245d237b5_Pencil.jpg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Automated Outbound" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09a99d2a74c245d237b5_Pencil-p-500.jpg 500w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09a99d2a74c245d237b5_Pencil.jpg 700w" class="u-img-cover"/></div></div><div class="card-body_content w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card-body_text u-text-clamp-3"><p data-wf--paragraph--variant="medium" class="paragraph w-variant-2fe59925-bb17-5367-d8b2-ce4e1cd2820e u-text-black-75">Learn how to build fully automated, 1:1 outbound campaigns using AI in Clay</p></div><div class="course-card_featured"><div class="course-card_lesson cc-top"><div><div>Intro to Personalized Outreach at Scale</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/intro-to-personalized-outreach-at-scale-automated-outbound" class="clickable_link w-inline-block"><span class="u-sr-only">Intro to Personalized Outreach at Scale</span></a><button class="clickable_button"><span class="u-sr-only">Intro to Personalized Outreach at Scale</span></button></div></div><div class="course-card_lesson"><div><div>Enrich Companies (Waterfalls)</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/enrich-companies-waterfalls-automated-outbound" class="clickable_link w-inline-block"><span class="u-sr-only">Enrich Companies (Waterfalls)</span></a><button class="clickable_button"><span class="u-sr-only">Enrich Companies (Waterfalls)</span></button></div></div><div class="course-card_lesson cc-bottom"><div><div>Enrich People (Waterfalls)</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/enrich-people-waterfalls-clay-101" class="clickable_link w-inline-block"><span class="u-sr-only">Enrich People (Waterfalls)</span></a><button class="clickable_button"><span class="u-sr-only">Enrich People (Waterfalls)</span></button></div></div></div></div></div><div class="clickable_wrap"><a href="/courses/automated-outbound" class="clickable_link w-inline-block"><span class="u-sr-only">View course</span></a><button class="clickable_button"><span class="u-sr-only">View course</span></button></div></div></div></div></div><div data-swiper-slide="" role="listitem" class="slide w-dyn-item"><div class="card cc-course"><div class="card-theme cc-oat"><div data-wf--course-card--variant="horizontal" class="course-card"><div data-wf--card-title--variant="base" class="card-title u-d-flex"><div class="card-header-left"><h3 data-wf--heading--alignment="left-align" class="heading-component">CRM Enrichment</h3><div data-wf--eyebrow--style="medium" class="eyebrow-wrapper w-variant-c23664ed-35e2-28f5-cea8-706d39e34328 u-opacity-75"><div aria-hidden="false" class="eyebrow">Intermediate</div></div></div><div data-wf--icon-button--variant="large" class="icon-button w-variant-409ad742-f8f5-f2fa-9a2e-47da25a52517"><div class="icon_clip"><div class="icon_up-right-show"><div class="ph-icon_item cc-up-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="card-body w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card_img w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d098fa0827e825906f36c_Pot-02.jpg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="CRM Enrichment" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d098fa0827e825906f36c_Pot-02-p-500.jpg 500w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d098fa0827e825906f36c_Pot-02.jpg 700w" class="u-img-cover"/></div></div><div class="card-body_content w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card-body_text u-text-clamp-3"><p data-wf--paragraph--variant="medium" class="paragraph w-variant-2fe59925-bb17-5367-d8b2-ce4e1cd2820e u-text-black-75">Build data hygiene processes for your CRM at scale, and keep it automatically up-to-date.</p></div><div class="course-card_featured"><div class="course-card_lesson cc-top"><div><div>Intro to CRM Enrichment</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/intro-to-crm-enrichment" class="clickable_link w-inline-block"><span class="u-sr-only">Intro to CRM Enrichment</span></a><button class="clickable_button"><span class="u-sr-only">Intro to CRM Enrichment</span></button></div></div><div class="course-card_lesson"><div><div>Importing from your CRM</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/importing-from-your-crm-crm-enrichment" class="clickable_link w-inline-block"><span class="u-sr-only">Importing from your CRM</span></a><button class="clickable_button"><span class="u-sr-only">Importing from your CRM</span></button></div></div><div class="course-card_lesson cc-bottom"><div><div>Clay x HubSpot Actions</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/clay-x-hubspot-actions-crm-enrichment" class="clickable_link w-inline-block"><span class="u-sr-only">Clay x HubSpot Actions</span></a><button class="clickable_button"><span class="u-sr-only">Clay x HubSpot Actions</span></button></div></div></div></div></div><div class="clickable_wrap"><a href="/courses/crm-enrichment" class="clickable_link w-inline-block"><span class="u-sr-only">View course</span></a><button class="clickable_button"><span class="u-sr-only">View course</span></button></div></div></div></div></div><div data-swiper-slide="" role="listitem" class="slide w-dyn-item"><div class="card cc-course"><div class="card-theme cc-oat"><div data-wf--course-card--variant="horizontal" class="course-card"><div data-wf--card-title--variant="base" class="card-title u-d-flex"><div class="card-header-left"><h3 data-wf--heading--alignment="left-align" class="heading-component">Automated Inbound</h3><div data-wf--eyebrow--style="medium" class="eyebrow-wrapper w-variant-c23664ed-35e2-28f5-cea8-706d39e34328 u-opacity-75"><div aria-hidden="false" class="eyebrow">Intermediate</div></div></div><div data-wf--icon-button--variant="large" class="icon-button w-variant-409ad742-f8f5-f2fa-9a2e-47da25a52517"><div class="icon_clip"><div class="icon_up-right-show"><div class="ph-icon_item cc-up-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="card-body w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card_img w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09dccf124aaec7acf5b1_Magnet.jpg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Automated Inbound" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09dccf124aaec7acf5b1_Magnet-p-500.jpg 500w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d09dccf124aaec7acf5b1_Magnet.jpg 700w" class="u-img-cover"/></div></div><div class="card-body_content w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card-body_text u-text-clamp-3"><p data-wf--paragraph--variant="medium" class="paragraph w-variant-2fe59925-bb17-5367-d8b2-ce4e1cd2820e u-text-black-75">Learn how to automatically enrich, score, and follow-up with inbound leads with Clay&#x27;s inbound automation engine for lightning-fast speed-to-lead.</p></div><div class="course-card_featured"><div class="course-card_lesson cc-top"><div><div>Intro to Inbound Automation</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/intro-to-inbound-automation-inbound-automation" class="clickable_link w-inline-block"><span class="u-sr-only">Intro to Inbound Automation</span></a><button class="clickable_button"><span class="u-sr-only">Intro to Inbound Automation</span></button></div></div><div class="course-card_lesson"><div><div>Connecting Inbound Lead Sources</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/connecting-lead-sources-inbound-automation" class="clickable_link w-inline-block"><span class="u-sr-only">Connecting Inbound Lead Sources</span></a><button class="clickable_button"><span class="u-sr-only">Connecting Inbound Lead Sources</span></button></div></div><div class="course-card_lesson cc-bottom"><div><div>Clay Inbound Automation: End-to-End Workflow</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/clay-inbound-automation-end-to-end-workflow-inbound-automation" class="clickable_link w-inline-block"><span class="u-sr-only">Clay Inbound Automation: End-to-End Workflow</span></a><button class="clickable_button"><span class="u-sr-only">Clay Inbound Automation: End-to-End Workflow</span></button></div></div></div></div></div><div class="clickable_wrap"><a href="/courses/automated-inbound" class="clickable_link w-inline-block"><span class="u-sr-only">View course</span></a><button class="clickable_button"><span class="u-sr-only">View course</span></button></div></div></div></div></div><div data-swiper-slide="" role="listitem" class="slide w-dyn-item"><div class="card cc-course"><div class="card-theme cc-oat"><div data-wf--course-card--variant="horizontal" class="course-card"><div data-wf--card-title--variant="base" class="card-title u-d-flex"><div class="card-header-left"><h3 data-wf--heading--alignment="left-align" class="heading-component">How to Use HG Insights in Clay</h3><div data-wf--eyebrow--style="medium" class="eyebrow-wrapper w-variant-c23664ed-35e2-28f5-cea8-706d39e34328 u-opacity-75"><div aria-hidden="false" class="eyebrow">Intermediate</div></div></div><div data-wf--icon-button--variant="large" class="icon-button w-variant-409ad742-f8f5-f2fa-9a2e-47da25a52517"><div class="icon_clip"><div class="icon_up-right-show"><div class="ph-icon_item cc-up-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="card-body w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card_img w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d08f7a2a6274a00a23f4a_HG-Floppy.jpg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="How to Use HG Insights in Clay" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687e604972375496b891fe58/691d08f7a2a6274a00a23f4a_HG-Floppy-p-500.jpg 500w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d08f7a2a6274a00a23f4a_HG-Floppy-p-800.jpg 800w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d08f7a2a6274a00a23f4a_HG-Floppy-p-1080.jpg 1080w, https://cdn.prod.website-files.com/687e604972375496b891fe58/691d08f7a2a6274a00a23f4a_HG-Floppy.jpg 1500w" class="u-img-cover"/></div></div><div class="card-body_content w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card-body_text u-text-clamp-3"><p data-wf--paragraph--variant="medium" class="paragraph w-variant-2fe59925-bb17-5367-d8b2-ce4e1cd2820e u-text-black-75">Diving deep into one of the most powerful enrichment providers in Clay&#x27;s arsenal: HG Insights.</p></div><div class="course-card_featured"><div class="course-card_lesson cc-top"><div><div>What is HG Insights</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/what-is-hg-insights" class="clickable_link w-inline-block"><span class="u-sr-only">What is HG Insights</span></a><button class="clickable_button"><span class="u-sr-only">What is HG Insights</span></button></div></div><div class="course-card_lesson"><div><div>HG Insights in Action</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/hg-insights-in-action" class="clickable_link w-inline-block"><span class="u-sr-only">HG Insights in Action</span></a><button class="clickable_button"><span class="u-sr-only">HG Insights in Action</span></button></div></div><div class="course-card_lesson cc-bottom"><div><div>Building Company Lists Based on Tech Stack</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/building-company-lists-based-on-tech-stack" class="clickable_link w-inline-block"><span class="u-sr-only">Building Company Lists Based on Tech Stack</span></a><button class="clickable_button"><span class="u-sr-only">Building Company Lists Based on Tech Stack</span></button></div></div></div></div></div><div class="clickable_wrap"><a href="/courses/how-to-use-hg-insights-in-clay" class="clickable_link w-inline-block"><span class="u-sr-only">View course</span></a><button class="clickable_button"><span class="u-sr-only">View course</span></button></div></div></div></div></div><div data-swiper-slide="" role="listitem" class="slide w-dyn-item"><div class="card cc-course"><div class="card-theme cc-oat"><div data-wf--course-card--variant="horizontal" class="course-card"><div data-wf--card-title--variant="base" class="card-title u-d-flex"><div class="card-header-left"><h3 data-wf--heading--alignment="left-align" class="heading-component">TAM Sourcing</h3><div data-wf--eyebrow--style="medium" class="eyebrow-wrapper w-variant-c23664ed-35e2-28f5-cea8-706d39e34328 u-opacity-75"><div aria-hidden="false" class="eyebrow">Intermediate</div></div></div><div data-wf--icon-button--variant="large" class="icon-button w-variant-409ad742-f8f5-f2fa-9a2e-47da25a52517"><div class="icon_clip"><div class="icon_up-right-show"><div class="ph-icon_item cc-up-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="card-body w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card_img w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/696008f5953e676fab2fd4c7_TAM%20sourcing.webp" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="TAM Sourcing" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687e604972375496b891fe58/696008f5953e676fab2fd4c7_TAM%20sourcing-p-500.webp 500w, https://cdn.prod.website-files.com/687e604972375496b891fe58/696008f5953e676fab2fd4c7_TAM%20sourcing-p-800.webp 800w, https://cdn.prod.website-files.com/687e604972375496b891fe58/696008f5953e676fab2fd4c7_TAM%20sourcing-p-1080.webp 1080w, https://cdn.prod.website-files.com/687e604972375496b891fe58/696008f5953e676fab2fd4c7_TAM%20sourcing.webp 1136w" class="u-img-cover"/></div></div><div class="card-body_content w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card-body_text u-text-clamp-3"><p data-wf--paragraph--variant="medium" class="paragraph w-variant-2fe59925-bb17-5367-d8b2-ce4e1cd2820e u-text-black-75">Learn how to systematically map your entire addressable market with Clay&#x27;s real-time data and identify high-intent prospects ready to buy.</p></div><div class="course-card_featured"><div class="course-card_lesson cc-top"><div><div>Introduction to TAM Sourcing</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/introduction-to-tam-sourcing-tam-sourcing" class="clickable_link w-inline-block"><span class="u-sr-only">Introduction to TAM Sourcing</span></a><button class="clickable_button"><span class="u-sr-only">Introduction to TAM Sourcing</span></button></div></div><div class="course-card_lesson"><div><div>Understanding your ICP</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/understanding-your-icp-tam-sourcing" class="clickable_link w-inline-block"><span class="u-sr-only">Understanding your ICP</span></a><button class="clickable_button"><span class="u-sr-only">Understanding your ICP</span></button></div></div><div class="course-card_lesson cc-bottom"><div><div>TAM Sourcing Workflows in Clay</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/tam-sourcing-workflows-in-clay-tam-sourcing" class="clickable_link w-inline-block"><span class="u-sr-only">TAM Sourcing Workflows in Clay</span></a><button class="clickable_button"><span class="u-sr-only">TAM Sourcing Workflows in Clay</span></button></div></div></div></div></div><div class="clickable_wrap"><a href="/courses/tam-sourcing" class="clickable_link w-inline-block"><span class="u-sr-only">View course</span></a><button class="clickable_button"><span class="u-sr-only">View course</span></button></div></div></div></div></div><div data-swiper-slide="" role="listitem" class="slide w-dyn-item"><div class="card cc-course"><div class="card-theme cc-oat"><div data-wf--course-card--variant="horizontal" class="course-card"><div data-wf--card-title--variant="base" class="card-title u-d-flex"><div class="card-header-left"><h3 data-wf--heading--alignment="left-align" class="heading-component">Clay in ChatGPT</h3><div data-wf--eyebrow--style="medium" class="eyebrow-wrapper w-variant-c23664ed-35e2-28f5-cea8-706d39e34328 u-opacity-75"><div aria-hidden="false" class="eyebrow">Beginner</div></div></div><div data-wf--icon-button--variant="large" class="icon-button w-variant-409ad742-f8f5-f2fa-9a2e-47da25a52517"><div class="icon_clip"><div class="icon_up-right-show"><div class="ph-icon_item cc-up-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="card-body w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card_img w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/69a9b7eaa4baa122a409ddb2_chatgpt-course.jpeg" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Clay in ChatGPT" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687e604972375496b891fe58/69a9b7eaa4baa122a409ddb2_chatgpt-course-p-500.jpeg 500w, https://cdn.prod.website-files.com/687e604972375496b891fe58/69a9b7eaa4baa122a409ddb2_chatgpt-course-p-800.jpeg 800w, https://cdn.prod.website-files.com/687e604972375496b891fe58/69a9b7eaa4baa122a409ddb2_chatgpt-course-p-1080.jpeg 1080w, https://cdn.prod.website-files.com/687e604972375496b891fe58/69a9b7eaa4baa122a409ddb2_chatgpt-course-p-1600.jpeg 1600w, https://cdn.prod.website-files.com/687e604972375496b891fe58/69a9b7eaa4baa122a409ddb2_chatgpt-course-p-2000.jpeg 2000w, https://cdn.prod.website-files.com/687e604972375496b891fe58/69a9b7eaa4baa122a409ddb2_chatgpt-course-p-2600.jpeg 2600w, https://cdn.prod.website-files.com/687e604972375496b891fe58/69a9b7eaa4baa122a409ddb2_chatgpt-course.jpeg 3000w" class="u-img-cover"/></div></div><div class="card-body_content w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card-body_text u-text-clamp-3"><p data-wf--paragraph--variant="medium" class="paragraph w-variant-2fe59925-bb17-5367-d8b2-ce4e1cd2820e u-text-black-75">Learn how to use Clay&#x27;s enrichment and research tools directly inside ChatGPT to find contacts, research accounts, and craft personalized outreach, all in a single conversation. </p></div><div class="course-card_featured"><div class="course-card_lesson cc-top"><div><div>What is Clay in ChatGPT?</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/what-is-clay-in-chatgpt" class="clickable_link w-inline-block"><span class="u-sr-only">What is Clay in ChatGPT?</span></a><button class="clickable_button"><span class="u-sr-only">What is Clay in ChatGPT?</span></button></div></div><div class="course-card_lesson"><div><div>Setting up Clay in ChatGPT</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/setting-up-clay-in-chatgpt" class="clickable_link w-inline-block"><span class="u-sr-only">Setting up Clay in ChatGPT</span></a><button class="clickable_button"><span class="u-sr-only">Setting up Clay in ChatGPT</span></button></div></div><div class="course-card_lesson cc-bottom"><div><div>Best practices for Clay in ChatGPT</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/best-practices-for-clay-in-chatgpt" class="clickable_link w-inline-block"><span class="u-sr-only">Best practices for Clay in ChatGPT</span></a><button class="clickable_button"><span class="u-sr-only">Best practices for Clay in ChatGPT</span></button></div></div></div></div></div><div class="clickable_wrap"><a href="/courses/clay-in-chatgpt" class="clickable_link w-inline-block"><span class="u-sr-only">View course</span></a><button class="clickable_button"><span class="u-sr-only">View course</span></button></div></div></div></div></div><div data-swiper-slide="" role="listitem" class="slide w-dyn-item"><div class="card cc-course"><div class="card-theme cc-oat"><div data-wf--course-card--variant="horizontal" class="course-card"><div data-wf--card-title--variant="base" class="card-title u-d-flex"><div class="card-header-left"><h3 data-wf--heading--alignment="left-align" class="heading-component">Audiences</h3><div data-wf--eyebrow--style="medium" class="eyebrow-wrapper w-variant-c23664ed-35e2-28f5-cea8-706d39e34328 u-opacity-75"><div aria-hidden="false" class="eyebrow">Beginner</div></div></div><div data-wf--icon-button--variant="large" class="icon-button w-variant-409ad742-f8f5-f2fa-9a2e-47da25a52517"><div class="icon_clip"><div class="icon_up-right-show"><div class="ph-icon_item cc-up-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="card-body w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card_img w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/69b85bbff0fe154e011b0d2b_Audiences-Hero.png" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Audiences" sizes="(max-width: 800px) 100vw, 800px" srcset="https://cdn.prod.website-files.com/687e604972375496b891fe58/69b85bbff0fe154e011b0d2b_Audiences-Hero-p-500.png 500w, https://cdn.prod.website-files.com/687e604972375496b891fe58/69b85bbff0fe154e011b0d2b_Audiences-Hero-p-800.png 800w, https://cdn.prod.website-files.com/687e604972375496b891fe58/69b85bbff0fe154e011b0d2b_Audiences-Hero-p-1080.png 1080w, https://cdn.prod.website-files.com/687e604972375496b891fe58/69b85bbff0fe154e011b0d2b_Audiences-Hero.png 1125w" class="u-img-cover"/></div></div><div class="card-body_content w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card-body_text u-text-clamp-3"><p data-wf--paragraph--variant="medium" class="paragraph w-variant-2fe59925-bb17-5367-d8b2-ce4e1cd2820e u-text-black-75">Learn how RevOps teams use Clay Audiences to build a unified data layer so you can sync your CRM, create dynamic segments, and activate your data at enterprise scale.</p></div><div class="course-card_featured"><div class="course-card_lesson cc-top"><div><div>What is Clay Audiences?</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/what-is-clay-audiences" class="clickable_link w-inline-block"><span class="u-sr-only">What is Clay Audiences?</span></a><button class="clickable_button"><span class="u-sr-only">What is Clay Audiences?</span></button></div></div><div class="course-card_lesson"><div><div>How Audiences Works: Import, Enrich, Action, Export</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/how-audiences-works-import-enrich-action-export" class="clickable_link w-inline-block"><span class="u-sr-only">How Audiences Works: Import, Enrich, Action, Export</span></a><button class="clickable_button"><span class="u-sr-only">How Audiences Works: Import, Enrich, Action, Export</span></button></div></div><div class="course-card_lesson cc-bottom"><div><div>Setting Up Audiences</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/setting-up-audiences" class="clickable_link w-inline-block"><span class="u-sr-only">Setting Up Audiences</span></a><button class="clickable_button"><span class="u-sr-only">Setting Up Audiences</span></button></div></div></div></div></div><div class="clickable_wrap"><a href="/courses/clay-audiences" class="clickable_link w-inline-block"><span class="u-sr-only">View course</span></a><button class="clickable_button"><span class="u-sr-only">View course</span></button></div></div></div></div></div><div data-swiper-slide="" role="listitem" class="slide w-dyn-item"><div class="card cc-course"><div class="card-theme cc-oat"><div data-wf--course-card--variant="horizontal" class="course-card"><div data-wf--card-title--variant="base" class="card-title u-d-flex"><div class="card-header-left"><h3 data-wf--heading--alignment="left-align" class="heading-component">Functions</h3><div data-wf--eyebrow--style="medium" class="eyebrow-wrapper w-variant-c23664ed-35e2-28f5-cea8-706d39e34328 u-opacity-75"><div aria-hidden="false" class="eyebrow">Beginner</div></div></div><div data-wf--icon-button--variant="large" class="icon-button w-variant-409ad742-f8f5-f2fa-9a2e-47da25a52517"><div class="icon_clip"><div class="icon_up-right-show"><div class="ph-icon_item cc-up-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="card-body w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card_img w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div data-wf--image--aspect-ratio="16x9" class="img-component w-variant-b5e7a2df-0aae-a75d-3cfa-d5f2e50ac839"><img src="https://cdn.prod.website-files.com/687e604972375496b891fe58/69dd314c17081ace9a130abb_Functions_logo.png" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Functions" class="u-img-cover"/></div></div><div class="card-body_content w-variant-8a139657-d80b-2a51-3ac6-9a57d140d42f"><div class="card-body_text u-text-clamp-3"><p data-wf--paragraph--variant="medium" class="paragraph w-variant-2fe59925-bb17-5367-d8b2-ce4e1cd2820e u-text-black-75">Learn how to build reusable enrichment workflows in Clay — called Functions — so you can standardize your best logic, eliminate duplicate work, and propagate changes across every table the moment you make them.</p></div><div class="course-card_featured"><div class="course-card_lesson cc-top"><div><div>Introduction to Functions</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/introduction-to-functions" class="clickable_link w-inline-block"><span class="u-sr-only">Introduction to Functions</span></a><button class="clickable_button"><span class="u-sr-only">Introduction to Functions</span></button></div></div><div class="course-card_lesson"><div><div>Build Your First Function</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/build-your-first-function" class="clickable_link w-inline-block"><span class="u-sr-only">Build Your First Function</span></a><button class="clickable_button"><span class="u-sr-only">Build Your First Function</span></button></div></div><div class="course-card_lesson cc-bottom"><div><div>Roll Functions Out Across Your Team</div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="xs" class="icon-base"><span class="icon-pull w-variant-dc52e2c1-bd76-47a0-eef8-9f333a137795 ph-fill ph-play">​</span></div></div></div></div></div><div class="clickable_wrap"><a href="/lessons/roll-functions-out-across-your-team" class="clickable_link w-inline-block"><span class="u-sr-only">Roll Functions Out Across Your Team</span></a><button class="clickable_button"><span class="u-sr-only">Roll Functions Out Across Your Team</span></button></div></div></div></div></div><div class="clickable_wrap"><a href="/courses/functions" class="clickable_link w-inline-block"><span class="u-sr-only">View course</span></a><button class="clickable_button"><span class="u-sr-only">View course</span></button></div></div></div></div></div></div></div></div></div></section><section class="section section-padding-sm"><div class="container"><div class="section_base cc-gap-md"><div data-wf--heading-row--variant="base" class="heading-row"><div class="heading-row_intro"><h2 data-wf--heading--alignment="left-align" class="heading-component h3 u-mb-0">Other popular resources</h2></div><div></div></div><div class="card-row"><div class="card cc-resource"><div class="card-theme cc-matcha"><div class="card-content_inside"><div class="card-body"><div class="doc-card_content"><div><div data-wf--eyebrow--style="default" class="eyebrow-wrapper"><div aria-hidden="false" class="eyebrow">Experts</div></div><h3 data-wf--heading--alignment="left-align" class="heading-component h4">Find a Clay Expert</h3></div><div class="dec-card_text"><div class="u-text-clamp-3"><p data-wf--paragraph--variant="base" class="paragraph u-text-secondary">Explore our network of Clay experts and agencies.</p></div></div></div></div><div class="doc-card_action"><div class="card-action_text"><div data-wf--eyebrow--style="default" class="eyebrow-wrapper u-mb-0"><div aria-hidden="true" class="eyebrow">View experts</div></div><div class="card-action_shade"></div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="clickable_wrap"><a href="https://www.clay.com/experts" class="clickable_link w-inline-block"><span class="u-sr-only">View experts</span></a><button class="clickable_button"><span class="u-sr-only">View experts</span></button></div></div></div></div><div class="card cc-resource"><div class="card-theme cc-lemon"><div class="card-content_inside"><div class="card-body"><div class="doc-card_content"><div><div data-wf--eyebrow--style="default" class="eyebrow-wrapper"><div aria-hidden="false" class="eyebrow">Community</div></div><h3 data-wf--heading--alignment="left-align" class="heading-component h4">Join our slack community</h3></div><div class="dec-card_text"><div class="u-text-clamp-3"><p data-wf--paragraph--variant="base" class="paragraph u-text-secondary">Find help in our slack community, and support channels.</p></div></div></div></div><div class="doc-card_action"><div class="card-action_text"><div data-wf--eyebrow--style="default" class="eyebrow-wrapper u-mb-0"><div aria-hidden="true" class="eyebrow">Go to slack</div></div><div class="card-action_shade"></div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="clickable_wrap"><a href="https://community.clay.com" class="clickable_link w-inline-block"><span class="u-sr-only">Go to slack</span></a><button class="clickable_button"><span class="u-sr-only">Go to slack</span></button></div></div></div></div><div class="card cc-resource"><div class="card-theme"><div class="card-content_inside"><div class="card-body"><div class="doc-card_content"><div><div data-wf--eyebrow--style="default" class="eyebrow-wrapper"><div aria-hidden="false" class="eyebrow">Cohorts</div></div><h3 data-wf--heading--alignment="left-align" class="heading-component h4">Join a cohort, learn Clay fast!</h3></div><div class="dec-card_text"><div class="u-text-clamp-3"><p data-wf--paragraph--variant="base" class="paragraph u-text-secondary">The faster way to master Clay. Sign in if you&#x27;re enrolled in a cohort (current or past) or apply!</p></div></div></div></div><div class="doc-card_action"><div class="card-action_text"><div data-wf--eyebrow--style="default" class="eyebrow-wrapper u-mb-0"><div aria-hidden="true" class="eyebrow">Learn more about cohorts</div></div><div class="card-action_shade"></div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="clickable_wrap"><a href="/cohorts" class="clickable_link w-inline-block"><span class="u-sr-only">Learn more about cohorts</span></a><button class="clickable_button"><span class="u-sr-only">Learn more about cohorts</span></button></div></div></div></div><div class="card cc-resource"><div class="card-theme cc-dragonfruit"><div class="card-content_inside"><div class="card-body"><div class="doc-card_content"><div><div data-wf--eyebrow--style="default" class="eyebrow-wrapper"><div aria-hidden="false" class="eyebrow">Talents</div></div><h3 data-wf--heading--alignment="left-align" class="heading-component h4">Hire GTME Talent</h3></div><div class="dec-card_text"><div class="u-text-clamp-3"><p data-wf--paragraph--variant="base" class="paragraph u-text-secondary">Find and connect with GTM talent who&#x27;ve demonstrated expertise in building advanced workflows</p></div></div></div></div><div class="doc-card_action"><div class="card-action_text"><div data-wf--eyebrow--style="default" class="eyebrow-wrapper u-mb-0"><div aria-hidden="true" class="eyebrow">Explore GTME talents</div></div><div class="card-action_shade"></div></div><div data-wf--icon-button--variant="base" class="icon-button"><div class="icon_clip"><div class="icon_right-show"><div class="ph-icon_item cc-right"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div><div class="ph-icon_item"><div data-wf--icon-swatch--variant="sm" class="icon-base w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><svg viewBox="0 0 24 24" fill="none" class="icon-pull w-variant-f0decfe7-f01a-c7a1-7f26-ff5b81a43eab"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="icon-path"></path></svg></div></div></div></div></div></div><div class="clickable_wrap"><a href="https://www.clay.com/talent" target="_blank" class="clickable_link w-inline-block"><span class="u-sr-only">Explore GTME talents</span></a><button class="clickable_button"><span class="u-sr-only">Explore GTME talents</span></button></div></div></div></div></div></div></div></section></div><div class="w-dyn-list"><div class="cms-empty w-dyn-empty"></div></div><section class="section"><div data-swiper-parent="true" class="container cc-narrow"></div></section></main></div><footer class="footer-ph"><div class="footer-container container"><div class="row row-justify-between"><div class="col col-lg-5 col-md-7 col-sm-12"><h2 class="u-text-balance">Explore, practice and master Clay</h2></div><div class="col col-lg-2 col-lg-4 col-sm-12"><div class="footer-info-wrap u-d-flex cc-flex-col"><div class="brand u-aspect-custom u-mb-xs" id="" STYLE="width: 8rem;"><img src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/691f411366a473645359848d_clay-logo.avif" loading="lazy" alt="Clay logo"/></div><div class="eyebrow">Powered education</div><div class="footer-socials u-d-flex"><a href="https://www.linkedin.com/company/grow-with-clay/posts/?feedView=all" class="footer-social_link w-inline-block"><div data-wf--image--aspect-ratio="1x1" class="img-component w-variant-9fbd509f-cdc1-3164-90ff-53a572e70fad"><img src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/691f43d42bf3bbe05953cffb_LinkedIn%2C%20LinkedIn%20Brand%20Mentions.avif" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Go to linkedin page" class="u-img-cover"/></div><div class="u-sr-only">Linkedin</div></a><a href="https://www.youtube.com/@GrowWithClay/videos" class="footer-social_link w-inline-block"><div data-wf--image--aspect-ratio="1x1" class="img-component w-variant-9fbd509f-cdc1-3164-90ff-53a572e70fad"><img src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/691f43d488f69c05d83a1d71_YouTube.avif" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Go to youtube page" class="u-img-cover"/></div><div class="u-sr-only">Youtube</div></a><a href="https://www.clay.com/slack-community" class="footer-social_link w-inline-block"><div data-wf--image--aspect-ratio="1x1" class="img-component w-variant-9fbd509f-cdc1-3164-90ff-53a572e70fad"><img src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/691f43d4f37ea0be2ff2fd18_Claymation.avif" loading="lazy" width="Auto" data-wf--image-fit--image-fit="cover---center" alt="Join our slack community" class="u-img-cover"/></div><div class="u-sr-only">Slack community</div></a></div></div></div></div><div class="u-mt-lg"><div class="row row-justify-between"><div class="col col-lg-12"><nav class="footer-nav"><div class="footer-nav_col"><div class="footer-list-header">Explore Clay</div><ul role="list" class="footer-list w-list-unstyled"><li><a href="https://www.clay.com">Visit Clay.com</a></li><li><a href="https://www.clay.com/integrations">Integrations</a></li><li><a href="https://www.clay.com/waterfall-enrichment">Multi-provider data enrichment</a></li><li><a href="https://www.clay.com/sculptor">Sculptor</a></li><li><a href="https://www.clay.com/claygent">AI Claygent</a></li><li><a href="https://www.clay.com/audiences">Audiences</a></li><li><a href="https://www.clay.com/sequencer">Sequencer</a></li><li><a href="https://www.clay.com/pricing">Pricing</a></li><li><a href="https://www.clay.com/changelog">Changelog</a></li></ul></div><div class="footer-nav_col"><div class="footer-list-header">Get started here</div><ul role="list" class="footer-list w-list-unstyled"><li><a href="https://university.clay.com/lessons/intro-to-clay-101-fete-jigsaw">Get started lesson</a></li><li><a href="https://university.clay.com/courses/clay-101">Clay 101</a></li><li><a href="https://university.clay.com/cohorts">Enroll in Clay cohorts</a></li></ul></div><div class="footer-nav_col"><div class="footer-list-header">Engage</div><ul role="list" class="footer-list w-list-unstyled"><li><a href="https://www.clay.com/experts">Find a Clay experts</a></li><li><a href="https://www.clay.com/talent">Hire a GTME talent</a></li><li><a href="https://www.clay.com/job-board">GTM job board</a></li><li><a href="https://community.clay.com/">Community</a></li><li><a href="https://www.clay.com/slack-community">Join Slack</a></li><li><a href="https://clay.com/faq">FAQ</a></li></ul></div><div class="footer-nav_col"><div class="footer-list-header">Legal</div><ul role="list" class="footer-list w-list-unstyled"><li><a href="https://privacy.clay.com/policies">Privacy policy</a></li><li><a href="https://www.clay.com/terms-of-service">Terms of service</a></li><li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeAsU1U-AJfhqzDx6-6eVcyQ_kBD1J9cw1y0huQiS-HCkRf0Q/viewform">Do not sell my data</a></li></ul></div></nav></div></div></div><div class="footer-metadata">© Clay <span class="year">2025</span> – Born in Brooklyn. Claymation illustrations by the wonderful <a target="_blank" href="https://www.hudsonchristie.com/">Hudson Christie</a>.</div></div></footer></main></div><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=687563213dfbc91a782122b1" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/js/webflow.schunk.f2efb3c5440a81cf.js" type="text/javascript" integrity="sha384-VK02VJvMib7ytrF5M2joPWNtDQs366FZgEQ5B+Iwnjx0WBnwQXfootyziSYxdrmS" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/687563213dfbc91a782122b1/js/webflow.16f4c94a.f8aaa6f783e70587.js" type="text/javascript" integrity="sha384-w3/7vLIN+zBDQTQECoLYBjG2zolKyEYW5zZgYOSXeJgDOmXn4Hvj7MRBquDuJ1wO" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/gsap/3.14.2/gsap.min.js" type="text/javascript"></script><script src="https://cdn.prod.website-files.com/gsap/3.14.2/Flip.min.js" type="text/javascript"></script><script type="text/javascript">gsap.registerPlugin(Flip);</script><script>
+  // Loop through all current nav list items
+  document.querySelectorAll('[data-type="nav-item"].w--current').forEach(item => {
+    // Find the [data-role="icon"] inside this item
+    const icon = item.querySelector('[data-role="icon"]');
+
+    // Find the first <span> inside that icon
+    if (icon) {
+      const firstSpan = icon.querySelector('span');
+
+      if (firstSpan) {
+        firstSpan.classList.add('ph-fill');
+        firstSpan.classList.remove('ph-bold');
+      }
+    }
+  });
+</script>
+
+<script>
+  //---- Modal JS ----
+  // Get all dialog elements
+  const dialogs = document.querySelectorAll("dialog");
+  // Get the corresponding show buttons for each dialog
+  const showButtons = document.querySelectorAll("dialog + button");
+  // Get the corresponding close buttons for each dialog
+  const closeButtons = document.querySelectorAll("dialog button");
+
+  // Loop through each dialog and add event listeners
+  dialogs.forEach((dialog, index) => {
+    // "Show the dialog" button opens the dialog modally
+    showButtons[index].addEventListener("click", () => {
+      dialog.showModal();
+    });
+
+    // "Close" button closes the dialog
+    closeButtons[index].addEventListener("click", () => {
+      dialog.close();
+    });
+
+    // Close the dialog when clicking outside of it
+    dialog.addEventListener("click", (e) => {
+      const dialogDimensions = dialog.getBoundingClientRect();
+      if (
+        e.clientX < dialogDimensions.left ||
+        e.clientX > dialogDimensions.right ||
+        e.clientY < dialogDimensions.top ||
+        e.clientY > dialogDimensions.bottom
+      ) {
+        dialog.close();
+      }
+    });
+  });
+
+  //---- Update footer year ----
+  document.addEventListener('DOMContentLoaded', function() {
+    const elements = document.querySelectorAll('.year');
+    elements.forEach(element => {
+      element.textContent = new Date().getFullYear();
+    });
+  });
+</script>
+
+<script type="text/javascript" defer>
+  window.addEventListener("load", () => {
+
+    // --- Move triggerButtons to the top ---
+    const triggerButtons = document.querySelectorAll("[data-inkeep-button]");
+    if (!triggerButtons || triggerButtons.length === 0) return;
+
+    var KEY = '907bab64ab5657767d3dede25b552c35a36b9e61f47f7868'
+
+    // --- Only run the rest if triggerButtons exist ---
+
+    const inkeepDiv = document.createElement("div");
+    inkeepDiv.id = "inkeepModal";
+    inkeepDiv.style.position = "absolute";
+    document.body.appendChild(inkeepDiv);
+
+    function handleOpenChange(newOpen) {
+      inkeepWidget.update({ modalSettings: { isOpen: newOpen } });
+    }
+
+    const config = {
+      baseSettings: {
+        apiKey: KEY,
+        primaryBrandColor: "#000",
+        organizationDisplayName: "Clay",
+        theme: {
+          styles: [
+            {
+              key: "custom-theme",
+              type: "style",
+              value: `
+                .ikp-modal__overlay {
+                  z-index: 10000;
+                }
+                .ikp-modal__content {
+                  top: 20%;
+                }
+                image {
+                	object-fit: contain;
+                }
+              `,
+            },
+          ],
+        },
+        transformSource: (source) => {
+          const tabs = source.tabs || [];
+
+          if (source.url.includes("/courses") || source.url.includes("/university/lesson")) {
+            tabs.push("Courses");
+          }
+
+          if (source.url.includes("/faq")) {
+            tabs.push("FAQs");
+          }
+
+          if (source.url.includes("/docs")) {
+            tabs.push("Docs");
+          }
+
+          return { ...source, tabs };
+        },
+      },
+
+      searchSettings: {
+        tabs: [
+          "All",
+          ["Docs", { isAlwaysVisible: false }],
+          ["Courses", { isAlwaysVisible: false }],
+          ["FAQs", { isAlwaysVisible: false }],
+        ],
+      },
+
+      aiChatSettings: {
+        aiAssistantAvatar:
+        "https://cdn.prod.website-files.com/61477f2c24a826836f969afe/687aaeec4172a46127930b66_clay1x1.png",
+      },
+
+      modalSettings: {
+        onOpenChange: handleOpenChange,
+        shortcutKey: "k",
+      },
+    };
+
+    const inkeepWidget = Inkeep.ModalSearchAndChat(config);
+
+    triggerButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        inkeepWidget.update({ modalSettings: { isOpen: true } });
+      });
+    });
+  });
+</script>
+<script>
+  (function () {
+    const BASE_URL = 'https://clay-u.clay-run.workers.dev';
+
+    let meCache = null;
+
+    async function getMe() {
+      if (meCache) return meCache;
+
+      const res = await fetch('https://api.clay.com/v3/me', {
+        credentials: 'include',
+        cache: 'no-store',
+      });
+      if (!res.ok) {
+        throw new Error('Failed to fetch /v3/me: ' + res.status);
+      }
+      meCache = await res.json();
+      return meCache;
+    }
+
+    function getCourseHref() {
+      return document.querySelector('#crumb-lesson')?.getAttribute('href') || null;
+    }
+
+    function getSlug() {
+      return window.location.href;
+    }
+
+    // Generic setter: status = 'started' | 'completed' | ...
+    async function setUniversityStatus(status) {
+      const me = await getMe();
+      const course = getCourseHref();
+
+      const payload = {
+        user_id: me.id,
+        email: me.email,
+        slug: getSlug(),
+        status,
+        course,
+      };
+
+      const res = await fetch(BASE_URL + '/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to set status: ' + res.status);
+      }
+
+      return res.json(); // { ok: true, record: {...} }
+    }
+
+    // Convenience wrappers
+    async function setLessonStarted() {
+      return setUniversityStatus('started');
+    }
+
+    async function setLessonCompleted() {
+      return setUniversityStatus('completed');
+    }
+
+    /**
+   * Get status for a specific course/lesson.
+   * - If `course` is omitted, it uses #crumb-lesson href (like your current code).
+   * - If `slug` is provided, it will be sent and parsed by the worker.
+   *
+   * Returns: { ok: boolean, items: [{ lesson, status, course }, ...] }
+   */
+    async function getUniversityStatus({ course = null, slug = null } = {}) {
+      const me = await getMe();
+      const u = new URL(BASE_URL + '/status');
+
+      u.searchParams.set('user_id', me.id);
+
+      // Default to current crumb course if none explicitly passed
+      if (course === null) {
+        course = getCourseHref();
+      }
+      if (course) {
+        u.searchParams.set('course', course);
+      }
+      if (slug) {
+        u.searchParams.set('slug', slug);
+      }
+
+      const res = await fetch(u.toString(), {
+        cache: 'no-store',
+        headers: { Accept: 'application/json' },
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to get status: ' + res.status);
+      }
+
+      return res.json(); // { ok, items: [...] }
+    }
+
+    /**
+   * Get status of all courses and lessons for the current user.
+   * Returns: { ok: boolean, items: [{ lesson, status, course }, ...] }
+   */
+    async function getAllUniversityStatus() {
+      const me = await getMe();
+      const u = new URL(BASE_URL + '/status');
+
+      u.searchParams.set('user_id', me.id); // no course, no slug
+
+      const res = await fetch(u.toString(), {
+        cache: 'no-store',
+        headers: { Accept: 'application/json' },
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to get all status: ' + res.status);
+      }
+
+      return res.json();
+    }
+
+    // Expose on window
+    window.ClayUniversity = {
+      setUniversityStatus,
+      setLessonStarted,
+      setLessonCompleted,
+      getUniversityStatus,
+      getAllUniversityStatus,
+    };
+  })();
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    ClayUniversity.setLessonStarted().catch(console.error);
+
+    let lessonCompleted = false;
+
+    try {
+      const data = await ClayUniversity.getAllUniversityStatus();
+      const completedLessons = data.items?.filter(item => item.status === 'completed') || [];
+
+      const lessonElements = document.querySelectorAll('[data-lesson-item]');
+      lessonElements.forEach(element => {
+        const lessonValue = element.getAttribute('data-lesson-item');
+        const isCompleted = completedLessons.some(lesson => lesson.lesson === lessonValue);
+        if (isCompleted) {
+          element.setAttribute('data-lesson-completed', 'true');
+        }
+      });
+
+      const currentSlug = window.location.href;
+      const currentLessonCompleted = completedLessons.some(lesson => lesson.lesson === currentSlug);
+      if (currentLessonCompleted) {
+        lessonCompleted = true;
+        return; // No need to set up triggers
+      }
+    } catch (err) {
+      console.error('Failed to fetch lesson status:', err);
+    }
+
+    function markLessonComplete() {
+      if (lessonCompleted) return;
+      lessonCompleted = true;
+      ClayUniversity.setLessonCompleted().catch(console.error);
+    }
+
+    document.querySelectorAll('.complete-lesson-button').forEach(btn => {
+      btn.addEventListener('click', markLessonComplete);
+    });
+
+    function checkScrollProgress() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight <= 0) return; // Avoid division by zero on short pages
+
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      if (scrollPercent >= 80) {
+        markLessonComplete();
+        window.removeEventListener('scroll', checkScrollProgress);
+      }
+    }
+
+    window.addEventListener('scroll', checkScrollProgress);
+    checkScrollProgress();
+  });
+</script><style>
+  :root {
+    --nav-current-icon-color: #9f3e15;
+  }
+</style></body></html>
